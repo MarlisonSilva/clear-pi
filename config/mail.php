@@ -70,6 +70,17 @@ return [
         'array' => [
             'transport' => 'array',
         ],
+<<<<<<< HEAD
+
+        'failover' => [
+            'transport' => 'failover',
+            'mailers' => [
+                'smtp',
+                'log',
+            ],
+        ],
+=======
+>>>>>>> 88e1c92700c070c9226f716d73a2a5d2a2b297d9
     ],
 
     /*

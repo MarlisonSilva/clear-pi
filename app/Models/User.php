@@ -15,7 +15,11 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
+<<<<<<< HEAD
+     * @var string[]
+=======
      * @var array
+>>>>>>> 88e1c92700c070c9226f716d73a2a5d2a2b297d9
      */
     protected $fillable = [
         'name',
@@ -24,7 +28,11 @@ class User extends Authenticatable
     ];
 
     /**
+<<<<<<< HEAD
+     * The attributes that should be hidden for serialization.
+=======
      * The attributes that should be hidden for arrays.
+>>>>>>> 88e1c92700c070c9226f716d73a2a5d2a2b297d9
      *
      * @var array
      */
@@ -34,7 +42,11 @@ class User extends Authenticatable
     ];
 
     /**
+<<<<<<< HEAD
+     * The attributes that should be cast.
+=======
      * The attributes that should be cast to native types.
+>>>>>>> 88e1c92700c070c9226f716d73a2a5d2a2b297d9
      *
      * @var array
      */
