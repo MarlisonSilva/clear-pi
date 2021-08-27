@@ -1,0 +1,10 @@
+//OBS: a cada alteração no theme, lembrar de rodar o comando 'npm run dev'
+$primary: #233b50;
+$danger: #4ca7a2;
+
+$theme-colors: (
+  "test": #233b50,
+  "teste": $danger
+);
+
+@import "~bootstrap/scss/bootstrap";
