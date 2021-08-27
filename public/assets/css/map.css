@@ -22,7 +22,7 @@ body {
 
 }
 
-.side-bar ul{
+/* .side-bar ul{
     list-style: none;
     padding: 1rem .5rem 1rem 1rem;
 }
@@ -33,7 +33,7 @@ body {
     margin: .2rem;
     padding: .3rem;
     border-radius: 7px;
-}
+} */
 
 
 /* MOBILE VIEWPORT */
@@ -45,7 +45,7 @@ body {
         width: 100%;
         padding: 0;
     }
-
+/* 
     .side-bar ul{
         display: flex;
         justify-content: space-between;
@@ -55,7 +55,7 @@ body {
     .side-bar li{
         padding: .3rem;
         border-radius: 7px;
-    }
+    } */
 }
 
 
