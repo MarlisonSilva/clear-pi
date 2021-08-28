@@ -1,0 +1,75 @@
+#sidebar {
+    background-color: red;
+    display: inline;
+    position:absolute;
+
+    height:100%;
+    width: 20%;
+    z-index:1;
+}
+
+#sidebar .container-fluid {
+    border: 1px solid transparent;
+}
+
+#sidebar > div {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#sidebar > div > ul {
+    background-color: violet;
+    height: inherit;
+}
+
+#sidebar > div > ul > li {
+    border: 1px solid transparent;
+    height: 3rem;
+    padding-top: 5%;
+    padding-left: 1rem;
+    vertical-align: middle;
+}
+
+#sidebar > div > ul > li:hover {
+    border: 1px solid black;
+}
+
+#sidebar > div > ul > li > a:link, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#header  {
+    background-color: blue;
+    display: inline;
+    position: fixed;
+
+    height:3rem;
+    width: 80%;
+    padding-left: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+#header > .btn, .btn:hover {
+    border: none;
+    text-decoration: none;
+    width: 5%;
+}
+
+#header > i {
+    float: right;
+    font-size: 200%;
+    margin-top: -0.55rem;
+    margin-right: 1%;
+}
+
+
+#full-container {
+    background-color: green;
+    display: inline;
+    position: absolute;
+
+    height: calc( 100% - 3rem );
+    width: 80%;
+}
+

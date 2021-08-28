@@ -1,0 +1,27 @@
+#sidebar {
+    background-color: red;
+    display: inline;
+    position:absolute;
+
+    height:100%;
+    width: 20%;
+    z-index:1;
+}
+
+#full-container {
+    background-color: green;
+    display: inline;
+    position: absolute;
+
+    height: calc( 100% - 3rem );
+    width: 80%;
+}
+
+#header  {
+    background-color: blue;
+    display: inline;
+    position: fixed;
+
+    height:3rem;
+    width: 80%;
+}
