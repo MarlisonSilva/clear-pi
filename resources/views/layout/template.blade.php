@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gerencia</title>
 
-    <link rel="stylesheet" href="{{ asset('site/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('site/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/homepage.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
@@ -60,7 +60,7 @@
         </div>    
     </div>
 
-    <script src="{{ asset('site/jquery.js') }}"></script>
-    <script src="{{ asset('site/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
 </body>
 </html>

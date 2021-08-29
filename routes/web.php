@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('map');
+});
+
+Route::get('/template', function () {
     return view('layout/template');
 });
 
