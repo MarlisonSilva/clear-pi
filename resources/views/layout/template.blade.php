@@ -37,7 +37,12 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('/worker') }}">
-                        <i class="bi bi-people-fill"><span> Funcionários</span></i>
+                        <i class="bi bi-people"><span> Funcionários</span></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/running') }}">
+                        <i class="i bi-stopwatch"><span>Começar coleta</span></i>
                     </a>
                 </li>
             </ul>
