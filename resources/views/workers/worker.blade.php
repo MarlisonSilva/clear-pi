@@ -1,10 +1,36 @@
 @extends('layout.template')
 @section('content')
-<h1>Funcionários!</h1>
-<p> 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet velit diam. Aliquam tincidunt eget magna quis varius. Suspendisse potenti. Nunc dictum ac nunc sed consequat. Mauris rhoncus diam malesuada tortor pretium sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean dignissim euismod erat quis aliquet. Vestibulum sit amet tincidunt ex. Maecenas in nibh ut augue ultrices consequat. Sed est purus, ultricies fringilla dictum non, bibendum at nisl.
+<h1>Listagem de Funcionários!</h1> 
+<h2>
+    <a href="#">
+        <i class="bi bi-plus-circle-fill"></i>
+    </a>
+</h2>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Matrícula</th>
+        <th>Carga Horária</th>
+        <th>Telefone</th>
+    </tr>
+    <tr>
+        <td><a href="#indexId">Carlinho Faria</a></td>
+        <td>14546432</td>
+        <td>8h~16h</td>
+        <td>2222-2222</td>
 
-    Quisque vestibulum elit non libero tincidunt, id dapibus arcu feugiat. Vestibulum tempor magna ut purus consectetur porttitor. Vivamus finibus eu diam sed malesuada. Cras sed dolor pellentesque, egestas nibh ullamcorper, luctus ipsum. Donec ut lorem lobortis, consectetur ipsum non, cursus augue. Sed laoreet pretium diam, vel mollis libero viverra eget. Integer eu nibh lacus. Nulla congue erat tellus. Maecenas quis erat ligula. Suspendisse luctus non ipsum at pellentesque. Donec quis purus malesuada, dignissim neque eu, maximus ex. Morbi eros arcu, fermentum eget ligula aliquet, viverra venenatis purus. Curabitur bibendum sodales finibus. Nunc cursus commodo metus. Morbi rhoncus viverra metus vitae laoreet. Ut id ornare diam, luctus convallis magna.
-
-</p>
+    </tr>
+    <tr>
+        <td><a href="#indexId">Patricio Pereira</a></td>
+        <td>24647542</td>
+        <td>7h~18h</td>
+        <td>3333-3333</td>
+    </tr>
+    <tr>
+        <td><a href="#indexId">Robson Dantas</a></td>
+        <td>33636746</td>
+        <td>5h~10h</td>
+        <td>1111-1111</td>
+    </tr>
+</table>
 @endsection

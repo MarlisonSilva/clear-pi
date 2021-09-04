@@ -70,7 +70,9 @@
             </nav>
 
             <div id="main">
+                <hr>
                 @yield('content')
+                <hr>
             </div>  
         </nav>
     </div>
