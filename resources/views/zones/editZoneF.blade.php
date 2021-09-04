@@ -3,61 +3,59 @@
     <form action="{{ route('zonesTemp.update', 0) }}" method="POST">
         @csrf
         @method('PUT')
-        <div class="form-group">
+        <div class="form-group my-3">
             <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" class="form-control input-shadow" value="">
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome da zona">
         </div>
 
-        <div class="form-group">
-            <label for="horario">Horario</label>
-            <input type="text" name="horario" id="horario" class="form-control input-shadow" value="">
+        <div class="form-group my-3">
+            <label for="horario">Horário de funcionamento</label>
+            <input type="text" class="form-control" name="horario" id="horario" placeholder="hh:mm - hh:mm">
         </div>
 
-        <div class="form-group">
+        <div class="form-group my-3">
             
-            <label for="funcionamento">Dias de funcionamento</label>
-            <div class="row" id="tabela-dias"> 
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="domingo" id="domingo" />
-                    <label class="custom-control-label" for="domingo" id="dia-checkbox">Domingo</label>
-                </div>
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="segunda" id="segunda" />
-
-                    <label class="custom-control-label" for="segunda" id="dia-checkbox">Segunda</label>
-                </div>
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="terca" id="terca" />
-                    <label class="custom-control-label" for="terca" id="dia-checkbox">Terça</label>
-                </div>
-            </div>
-            <div class="row" id="tabela-dias">
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="quarta" id="quarta" />
-                    <label class="custom-control-label" for="quarta" id="dia-checkbox">Quarta</label>
-                </div>
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="quinta" id="quinta" />
-                    <label class="custom-control-label" for="quinta" id="dia-checkbox">Quinta</label>
-                </div>
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="sexta" id="sexta" />
-                    <label class="custom-control-label" for="sexta" id="dia-checkbox">Sexta</label>
+            <label>Dias de funcionamento</label>
+            <div class="row my-2" id="tabela-dias">   
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" class="btn-check w-25" name="domingo" id="domingo" autocomplete="off">
+                    <label class="btn btn-outline-dark w-25" for="domingo" id="dia-checkbox">Domingo</label>
+                
+                
+                    <input type="checkbox" class="btn-check w-25" name="segunda" id="segunda" autocomplete="off">
+                    <label class="btn btn-outline-dark w-25" for="segunda" id="dia-checkbox">Segunda</label>
+                
+                    <input type="checkbox" class="btn-check w-25" name="terca" id="terca" autocomplete="off">
+                    <label class="btn btn-outline-dark w-25" for="terca" id="dia-checkbox">Terça</label>
+                    
                 </div>
             </div>
-            <div class="row" id="tabela-dias">
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="sabado" id="sabado" />
-                    <label class="custom-control-label" for="sabado" id="dia-checkbox">Sábado</label>
+            <div class="row my-2" id="tabela-dias">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" class="btn-check w-25" name="quarta" id="quarta">
+                    <label class="btn btn-outline-dark w-25" for="quarta" id="dia-checkbox">Quarta</label>
+                
+                
+                    <input type="checkbox" class="btn-check w-25" name="quinta" id="quinta" autocomplete="off">
+                    <label class="btn btn-outline-dark w-25" for="quinta" id="dia-checkbox">Quinta</label>
+                
+                    <input type="checkbox" class="btn-check w-25" name="sexta" id="sexta" autocomplete="off">
+                    <label class="btn btn-outline-dark w-25" for="sexta" id="dia-checkbox">Sexta</label>
+                </div>
+            </div>
+            <div class="row my-2" id="tabela-dias">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" class="btn-check" name="sabado" id="sabado" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="sabado" id="dia-checkbox">Sábado</label>
                 </div>
             </div>  
         </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-light px-5"><i class="icon-pencil"></i> Confirmar</button>
+        <div class="form-group mt-4">
+            <button type="submit" class="btn btn-primary px-5"><i class="fa fa-road"></i> Criar</button>
         </div>
 
-        <div class="form-group">
-            <a class="btn btn-light px-5" href="javascript:history.back()"><i class="icon-arrow-left"></i> Cancelar</a>
+        <div class="form-group mt-2 mb-5">
+            <a class="btn btn-outline-danger px-5" href="javascript:history.back()"><i class="icon-trash"></i> Cancelar</a>
         </div>
     </form>
 @endsection

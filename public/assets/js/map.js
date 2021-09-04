@@ -22,7 +22,6 @@ map.addControl(
 
 // Toggle navigation
 function navigationToggle(){
-    console.log("AEEEEEEEEEEEEEEE");
     let navigation = window.document.querySelector('.navigation');
     if (!navigation.classList.contains("disable")) {
         navigation.classList.add("disable");

@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+    <!-- STYLES - BOOTSTRAP -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+	<!-- MAPBOX -->
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/map.css') }}">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
     
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-
+    
     <title>Mapa</title>
 </head>
 <body>

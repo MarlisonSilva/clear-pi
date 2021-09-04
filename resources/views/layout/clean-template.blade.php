@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clean-template</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/clean-template.css') }}">
 </head>
 <body>
-    <div style="width: 50%;">
-        @yield('content')
+    <div class="container-fluid">
+        <div class="container-sm container-form d-flex flex-column">
+            <div class="container-logo d-flex justify-content-center py-3">
+                <img class="logo" src="{{ asset('assets/images/favicon.ico') }}" alt="LOGO">
+            </div>
+            @yield('content')
+        </div>
     </div>
-    
-
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
 </body>

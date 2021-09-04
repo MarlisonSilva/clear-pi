@@ -68,6 +68,10 @@ body a{
 
 }
 
+.navigation-item a{
+    color: #213242;
+}
+
 .navigation-item a:hover, 
 .navigation-item:hover{
     color: #e3a92b;
@@ -195,4 +199,30 @@ body a{
         color: #000000;
     }
 
+}
+
+.dark-mode .navigation-bar{
+    background-color: #517490;
+}
+
+.dark-mode .navigation{
+    background-color: #3c5a72;
+}
+
+.dark-mode .navigation-item{
+    color: #000000;
+}
+
+.dark-mode .navigation-item a:hover, 
+.dark-mode .navigation-item:hover{
+    color: #000000;
+}
+
+.dark-mode .navigation-item.active{
+    background-color: #517490;
+}
+
+.dark-mode .navigation-item.active:hover,
+.dark-mode .navigation-item.active a:hover{
+    color: #ffffff;
 }

@@ -1,0 +1,25 @@
+body{
+    background-color: lightgray;
+    padding: 2rem 0 ;
+}
+
+.logo{
+    width: 150px;
+}
+
+.container-form{
+    width: 500px;
+    background-color: #e3a92b;
+    border-radius: 10px;
+}
+
+.container-form form input,
+.container-form form input:focus{
+    background-color: #e1c888;
+}
+
+@media (max-width: 500px) {
+    .container-form{
+        width: 100%;
+    }
+}

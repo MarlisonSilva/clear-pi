@@ -1,5 +1,5 @@
 {
-    "/site/style.css": "/site/style.css",
-    "/site/jquery.js": "/site/jquery.js",
-    "/site/bootstrap.js": "/site/bootstrap.js"
+    "/assets/css/style.css": "/assets/css/style.css",
+    "/assets/js/jquery.js": "/assets/js/jquery.js",
+    "/assets/js/bootstrap.js": "/assets/js/bootstrap.js"
 }
