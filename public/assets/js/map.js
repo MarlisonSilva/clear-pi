@@ -1,7 +1,8 @@
+
+// MAP
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2FuYXNoaWkxNiIsImEiOiJja2ZyZGRmejAwdHIzMnpydjYyeTZydGJiIn0.d6QimYaEUk4OoF5pgDPiXQ';
 const map = new mapboxgl.Map({
     container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v11', // style URL
     center: [-74.5, 40], // starting position [lng, lat]
     zoom: 9 // starting zoom
 });
@@ -19,11 +20,35 @@ map.addControl(
 );
 
 
+// Toggle navigation
+function navigationToggle(){
+    let navigation = window.document.querySelector('.navigation');
+    if (!navigation.classList.contains("disable")) {
+        navigation.classList.add("disable");
+    } else {
+        navigation.classList.remove("disable");
+    }
+}
+
+
 // DARK MODE
 const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+function mode() {
+    console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    if( prefersColorScheme.matches || document.body.className == "dark-mode") {
+        map.setStyle('mapbox://styles/mapbox/navigation-night-v1');
+    } else {
+        map.setStyle('mapbox://styles/mapbox/streets-v11');
+    }
+    
+}
 
-if( prefersColorScheme.matches ) {
+if( prefersColorScheme.matches || document.body.className == "dark-mode") {
     map.setStyle('mapbox://styles/mapbox/navigation-night-v1');
 } else {
     map.setStyle('mapbox://styles/mapbox/streets-v11');
 }
+
+

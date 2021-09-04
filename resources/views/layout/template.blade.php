@@ -53,9 +53,9 @@
         {{-- Page Content --}}
         <nav id="content">
 
-            <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav id="header" class="navbar">
                 <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-info nav-item">
+                    <button type="button" id="sidebarCollapse" class="btn nav-item">
                         <i class="bi bi-justify"></i>
                     </button>
                     <div id="user" class="dropstart">
@@ -82,7 +82,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
+                $('.sidebar').toggleClass('active');
                 $('#content').toggleClass('active');
             });
         });
