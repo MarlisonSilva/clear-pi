@@ -16,7 +16,7 @@ body {
 
 #sidebar {
     min-width: 250px;
-    max-width: 250px;
+    max-width: 100vw;
     min-height: 100vh;
 
     background: #213242;
@@ -50,6 +50,10 @@ body {
     overflow-x: hidden;
 }
 
+hr {
+    margin: 8px;
+}
+
 #content.active {
     width: 100%;
 }
@@ -68,7 +72,7 @@ body {
 #main {
     position: absolute;
     padding: 10px;
-    overflow-x: scroll;
+    overflow-x: hidden;
 }
 
 a, a:hover, a:focus {
@@ -91,11 +95,26 @@ table, th, td {
     border:1px solid black;
     padding: 10px;
     overflow: hidden;
+    font-size-adjust: 22px;
 }
 
-@media (max-width: 768px) {
+@media screen and (min-width: 320px) and (max-width: 411px) {
     tr, th, td {
         padding: 5px;
         font-size: 10px;
+    }
+}
+
+@media screen and (width: 280px){
+    tr, th, td {
+        padding: 5px;
+        font-size: 7px;
+    }
+}
+
+@media screen and (min-width: 412px) and (max-width: 540px ) {
+    tr, th, td {
+        padding: 5px;
+        font-size: small;
     }
 }
