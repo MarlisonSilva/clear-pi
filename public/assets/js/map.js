@@ -32,7 +32,7 @@ function navigationToggle(){
 
 
 // DARK MODE
-const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+const prefersColorScheme = window.matchMedia('prefers-color-scheme: dark');
 function mode() {
     console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
     var element = document.body;

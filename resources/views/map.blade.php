@@ -52,7 +52,7 @@
 						</a>
 					</li>
 					<li class="navigation-item active">
-						<a href="#" onclick="mode()">Mode</a>
+						<a href="#" onclick="mode();">Mode</a>
 					</li>
 				</ul>	
 			</div>
