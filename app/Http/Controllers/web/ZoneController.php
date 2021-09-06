@@ -38,7 +38,9 @@ class ZoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        include(app_path()."/includes/php/DBConfig.php");
+        $connection->query("INSERT INTO TB_ZONAS (ZON_NOME, ZON_HRFUNCIONAMENTO) VALUES ('$request->nome', '$request->horario')");
+        return Redirect::to("zones");
     }
     
     /**
