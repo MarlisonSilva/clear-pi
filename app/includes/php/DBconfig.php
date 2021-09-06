@@ -11,11 +11,11 @@ $db = $_ENV["DB_DATABASE"];
 $port = $_ENV["DB_PORT"];
 
 
-$conexao = new mysqli($address, $user, $pass, $db, $port);
+$connection = new mysqli($address, $user, $pass, $db, $port);
 if (mysqli_connect_errno()) {
     die(mysqli_connect_error());
     exit();
 }
 date_default_timezone_set('America/Fortaleza');
-mysqli_set_charset($conexao, "utf8");
+mysqli_set_charset($connection, "utf8");
 ?>
