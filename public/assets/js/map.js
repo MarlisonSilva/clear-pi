@@ -45,10 +45,4 @@ function mode() {
     
 }
 
-if( prefersColorScheme.matches || document.body.className == "dark-mode") {
-    map.setStyle('mapbox://styles/mapbox/navigation-night-v1');
-} else {
-    map.setStyle('mapbox://styles/mapbox/streets-v11');
-}
-
 
