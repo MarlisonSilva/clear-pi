@@ -7,6 +7,7 @@
     <title>Clean-template</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/clean-template.css') }}">
+    @yield('styles')
 </head>
 <body>
     <div class="container-fluid">
@@ -19,5 +20,6 @@
     </div>
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

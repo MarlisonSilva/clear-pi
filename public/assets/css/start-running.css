@@ -1,0 +1,50 @@
+.collect-container{
+    height: calc(100vh - 117px - 6rem);
+}
+
+.circle{
+    width: 250px;
+    height: 250px;
+    background-color: #517490;
+    border-radius: 50%;
+}
+
+.circle span,
+a span{
+    color: #e6e6e6;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+}
+
+.conteudo a:nth-child(2){
+    background-color: #517490;
+}
+
+.conteudo{
+    height: 80%;
+}
+
+.timer-container{
+
+}
+
+.timer-counter{
+    font-size: 2rem;
+    color: black;
+}
+
+.timer-text{
+    color: #213242;
+    font-size: .8rem;
+}
+
+
+@media (max-height: 700px) {
+    .collect-container{
+        height: auto;
+        padding-bottom: 2rem;
+    }    
+}

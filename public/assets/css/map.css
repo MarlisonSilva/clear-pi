@@ -31,15 +31,13 @@ body a{
 
 .navigation{
     background-color: #ffffff;
-    transition: visibility 0.3s, opacity 0.3s ease;
+    transition: 0.3s;
+
 }
 
 .navigation.disable{
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.3s, opacity 0.3s ease;
-    position: fixed;
-
+    margin-left: -90%;
+    transition: 0.3s;
 }
 
 .navigation-content{
@@ -125,6 +123,17 @@ body a{
         grid-template-areas: 
             "toggle"
             "nav";
+    }
+
+    .navigation{
+        background-color: #ffffff;
+        transition: 0.3s;
+    
+    }
+    
+    .navigation.disable{
+        margin-bottom: -90%;
+        transition: 0.3s;
     }
 
     .navigation-content{
