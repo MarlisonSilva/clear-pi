@@ -3,7 +3,7 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2FuYXNoaWkxNiIsImEiOiJja2ZyZGRmejAwdHIzMnpydjYyeTZydGJiIn0.d6QimYaEUk4OoF5pgDPiXQ';
 const map = new mapboxgl.Map({
     container: 'map', // container ID
-    center: [-74.5, 40], // starting position [lng, lat]
+    center: [-37.097191, -6.459455], // starting position [lng, lat]
     zoom: 9 // starting zoom
 });
 

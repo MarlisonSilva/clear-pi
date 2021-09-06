@@ -33,10 +33,6 @@ body {
     padding-top: 10px;
 }
 
-hr {
-    margin: 8px;
-}
-
 #sidebar ul li a {
     padding: 10px;
     font-size: 1.1em;
@@ -51,6 +47,7 @@ hr {
     position: relative;
     width: 81%;
     transition: all 0.3s;
+    overflow-x: hidden;
 }
 
 #content.active {
@@ -69,8 +66,9 @@ hr {
 }
 
 #main {
-    position: relative;
-    padding: 15px;
+    position: absolute;
+    padding: 10px;
+    overflow-x: scroll;
 }
 
 a, a:hover, a:focus {
@@ -90,6 +88,15 @@ h2 {
 /* Table Edit */
 
 table, th, td {
+    position: relative;
     border:1px solid black;
-    padding: 10px;
+    padding: 15px;
+}
+
+@media (max-width: 500px) {
+    table, th, td {
+        position: relative;
+        border:1px solid black;
+        padding: 2.5px;
+    }
 }
