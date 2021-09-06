@@ -22,7 +22,11 @@
                         <a href="{{ route('zones.edit', $zone["ZON_ID"]) }}">Editar</a>
                     </td>
                     <td>
-                        <a href="{{ route('zones.destroy', $zone["ZON_ID"]) }}">Excluir</a>
+                        <form id="form_delete" action={{ route('zones.destroy', $zone["ZON_ID"]) }} method="POST">
+                            @method("DELETE")
+                            @csrf
+                            <a href="javascript:{}" onclick="document.getElementById('form_delete').submit();">Excluir</a>
+                        </form>
                     </td>
                 </tr>
             @endforeach

@@ -1,9 +1,9 @@
 @extends('layout.clean-template')
 @section('content')
-    <form action="{{ route('zones.update', 0) }}" method="POST">
-        @csrf
-        @method('PUT')
-        @foreach ($data as $item)
+    @foreach ($data as $item)
+        <form action="{{ route('zones.update', $item["ZON_ID"]) }}" method="POST">
+            @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome" class="form-control input-shadow" value={{$item["ZON_NOME"]}}>
@@ -60,6 +60,6 @@
             <div class="form-group">
                 <a class="btn btn-light px-5" href="javascript:history.back()"><i class="icon-arrow-left"></i> Cancelar</a>
             </div>
-        @endforeach
-    </form>
+        </form>
+    @endforeach
 @endsection

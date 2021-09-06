@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ZoneController extends Controller
 {
@@ -73,9 +74,11 @@ class ZoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        include(app_path()."/includes/php/DBConfig.php");
+        $connection->query("UPDATE TB_ZONAS SET ZON_NOME = '$request->nome', ZON_HRFUNCIONAMENTO = '$request->horario' WHERE ZON_ID = $id");
+        return Redirect::to("zones");
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -84,6 +87,8 @@ class ZoneController extends Controller
      */
     public function destroy($id)
     {
-        //
+        include(app_path()."/includes/php/DBConfig.php");
+        $connection->query("DELETE FROM TB_ZONAS WHERE ZON_ID = $id");
+        return Redirect::to("zones");
     }
 }
