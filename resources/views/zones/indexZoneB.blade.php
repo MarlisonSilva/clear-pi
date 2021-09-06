@@ -2,9 +2,6 @@
 @section('content')
 <h1>Zonas! - BACK-END</h1>
 <a href="{{ route('zones.create') }}">CRIAR</a>
-<?php
-include(app_path()."/includes/php/CrudZones.php");
-?>
 <table>
     <thead>
         <tr>
@@ -15,8 +12,8 @@ include(app_path()."/includes/php/CrudZones.php");
         </tr>
     </thead>
     <tbody>
-        @if ($response !== false)
-            @while ($zone = $response->fetch_assoc())
+        @if ($data !== false)
+            @foreach ($data as $zone)
                 <tr>
                     <td>{{$zone["ZON_NOME"]}}</td>
                     <td>{{$zone["ZON_HRFUNCIONAMENTO"] . "h"}}</td>
@@ -28,8 +25,7 @@ include(app_path()."/includes/php/CrudZones.php");
                         <a href="{{ route('zones.destroy', $zone["ZON_ID"]) }}">Excluir</a>
                     </td>
                 </tr>
-            @endwhile
-            
+            @endforeach
         @endif
         
     </tbody>

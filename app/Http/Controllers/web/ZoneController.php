@@ -14,9 +14,11 @@ class ZoneController extends Controller
      */
     public function index()
     {
-        return view('zones/indexZoneB');
+        include(app_path()."/includes/php/DBConfig.php");
+        $response = $connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas");
+        return view('zones/indexZoneB', ["data" => $response]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +28,7 @@ class ZoneController extends Controller
     {
         return view('zones/createZoneB');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +39,7 @@ class ZoneController extends Controller
     {
         //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -48,7 +50,7 @@ class ZoneController extends Controller
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -57,9 +59,11 @@ class ZoneController extends Controller
      */
     public function edit($id)
     {
-        return view('zones/editZoneB');
+        include(app_path()."/includes/php/DBConfig.php");
+        $response = $connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas WHERE ZON_ID = $id");
+        return view('zones/editZoneB', ["data" => $response]);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
