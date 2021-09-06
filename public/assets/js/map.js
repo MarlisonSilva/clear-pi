@@ -1,8 +1,19 @@
 
 // MAP
+const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+let mapStyle;
+if( prefersColorScheme.matches || document.body.className == "dark-mode") {
+    mapStyle = 'mapbox://styles/mapbox/navigation-night-v1';
+} else {
+    mapStyle = 'mapbox://styles/mapbox/streets-v11';
+
+}
+
+
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2FuYXNoaWkxNiIsImEiOiJja2ZyZGRmejAwdHIzMnpydjYyeTZydGJiIn0.d6QimYaEUk4OoF5pgDPiXQ';
 const map = new mapboxgl.Map({
     container: 'map', // container ID
+    style: mapStyle,
     center: [-37.097191, -6.459455], // starting position [lng, lat]
     zoom: 9 // starting zoom
 });
@@ -32,7 +43,6 @@ function navigationToggle(){
 
 
 // DARK MODE
-const prefersColorScheme = window.matchMedia('prefers-color-scheme: dark');
 function mode() {
     console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
     var element = document.body;
@@ -43,6 +53,12 @@ function mode() {
         map.setStyle('mapbox://styles/mapbox/streets-v11');
     }
     
+}
+
+if( prefersColorScheme.matches || document.body.className == "dark-mode") {
+    map.setStyle('mapbox://styles/mapbox/navigation-night-v1');
+} else {
+    map.setStyle('mapbox://styles/mapbox/streets-v11');
 }
 
 
