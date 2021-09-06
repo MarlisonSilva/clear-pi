@@ -88,15 +88,14 @@ h2 {
 /* Table Edit */
 
 table, th, td {
-    position: relative;
     border:1px solid black;
-    padding: 15px;
+    padding: 10px;
+    overflow: hidden;
 }
 
-@media (max-width: 500px) {
-    table, th, td {
-        position: relative;
-        border:1px solid black;
-        padding: 2.5px;
+@media (max-width: 768px) {
+    tr, th, td {
+        padding: 5px;
+        font-size: 10px;
     }
 }
