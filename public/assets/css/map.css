@@ -31,13 +31,12 @@ body a{
 
 .navigation{
     background-color: #ffffff;
-    transition: 0.3s;
-
+    height: 100%;
 }
 
 .navigation.disable{
-    margin-left: -90%;
-    transition: 0.3s;
+    visibility: hidden;
+    width: 0;
 }
 
 .navigation-content{
@@ -68,6 +67,7 @@ body a{
 
 .navigation-item a{
     color: #213242;
+    width: 100%;
 }
 
 .navigation-item a:hover, 
@@ -82,6 +82,20 @@ body a{
 .navigation-item.active:hover,
 .navigation-item.active a:hover{
     color: #ffffff;
+}
+
+.navigation-item.login{
+    background-color: #213242;
+}
+
+.navigation-item.login,
+.navigation-item.login a{
+    color: #ffffff;
+}
+
+.navigation-item.login:hover,
+.navigation-item.login a:hover{
+    color: #e3a92b;
 }
 
 
@@ -210,10 +224,6 @@ body a{
         color: #000000;
     }
 
-}
-
-.dark-mode .navigation-bar{
-    background-color: #517490;
 }
 
 .dark-mode .navigation{

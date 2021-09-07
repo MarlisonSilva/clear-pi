@@ -54,6 +54,9 @@
 					<li class="navigation-item active">
 						<a href="#" onclick="mode();">Mode</a>
 					</li>
+					<li class="navigation-item login">
+						<a href="#">Logar</a>
+					</li>
 				</ul>	
 			</div>
 			<div class="navigation-toggle" onclick="navigationToggle()">

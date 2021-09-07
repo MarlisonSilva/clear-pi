@@ -29,6 +29,8 @@ map.addControl(
     showUserHeading: true
     })
 );
+map.addControl(new mapboxgl.FullscreenControl());
+
 
 
 // Toggle navigation
