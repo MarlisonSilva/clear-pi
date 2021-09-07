@@ -33,4 +33,6 @@
         <td>Sexta</td>
     </tr>
 </table>
+<a href="{{ route('trucks.index')}}">BACK-END</a><br>
+<a href="{{ route('trucksTemp.index')}}">FRONT-END</a><br>
 @endsection

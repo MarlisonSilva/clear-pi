@@ -51,7 +51,7 @@
             </div>  
         </div>
         <div class="form-group mt-4">
-            <button type="submit" class="btn btn-primary px-5"><i class="fa fa-road"></i> Criar</button>
+            <button type="submit" class="btn btn-primary px-5"><i class="fa fa-road"></i> Confirmar</button>
         </div>
 
         <div class="form-group mt-2 mb-5">

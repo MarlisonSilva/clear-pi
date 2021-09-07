@@ -54,7 +54,7 @@
         </div>
 
         <div class="form-group mt-2 mb-5">
-            <a class="btn btn-outline-danger px-5" href="javascript:history.back()"><i class="icon-trash"></i> Cancelar</a>
+            <a class="btn btn-outline-danger px-5" href="javascript:history.back()"><i class="bi bi-trash"></i> Cancelar</a>
         </div>
     </form>
 @endsection

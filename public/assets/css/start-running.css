@@ -17,14 +17,16 @@ a span{
 .button{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.conteudo a:nth-child(2){
+.content-container{
+    height: 90%;
+    
+}
+
+.content-container a:nth-child(2){
     background-color: #517490;
-}
-
-.conteudo{
-    height: 80%;
 }
 
 .timer-container{
@@ -41,10 +43,21 @@ a span{
     font-size: .8rem;
 }
 
+.tools-running{
+    width: 75%;
+}
 
 @media (max-height: 700px) {
     .collect-container{
         height: auto;
         padding-bottom: 2rem;
     }    
+}
+
+@media (max-height: 800px) {
+    .circle{
+        width: 210px;
+        height: 210px;
+    }
+ 
 }

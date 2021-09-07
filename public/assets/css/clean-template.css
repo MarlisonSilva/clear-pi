@@ -23,6 +23,11 @@ body{
     background-color: #e1c888;
 }
 
+.container-form .modal-content  form input,
+.container-form .modal-content  form input:focus{
+    background-color: #ffffff;
+}
+
 @media (max-width: 500px) {
     .container-form{
         width: 100%;
