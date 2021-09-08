@@ -6,16 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gerencia</title>
 
+    {{-- BOOSTRAP STYLE --}}
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/homepage.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    {{-- CSS ORIGINAL --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/homepage.css') }}">
+   
 </head>
 <body>
     {{-- Main --}}
     <div class="wrapper">
 
         {{-- SideBar --}}
-        <nav id="sidebar" class="">
+        <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>C.L.E.A.R</h3>
             </div>
@@ -23,27 +27,32 @@
             <ul class="list-unstyled components">
                 <li>
                     <a href="{{ url('/') }}">
-                        <i class="bi bi-house"></i><span> Página Principal</span>
+                        <i id="icon1" class="bi bi-house-fill"></i><span> Página Principal</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ url('/zone') }}">
-                        <i class="bi bi-globe"></i><span> Zonas</span>
+                        <i id="icon2" class="bi bi-globe"></i><span> Zonas</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ url('/truck') }}">
-                        <i class="bi bi-truck"></i><span> Caminhões</span>
+                        <i id="icon3" class="bi bi-truck"></i><span> Caminhões</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ url('/worker') }}">
-                        <i class="bi bi-people"></i><span> Funcionários</span>
+                        <i id="icon4" class="bi bi-people-fill"></i><span> Funcionários</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="toggleMode();">
+                        <i id="icon5" class="bi bi-moon-stars-fill"></i><span> Mudar Tema</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ url('/running') }}">
-                        <i class="i bi-stopwatch"></i><span> Começar coleta</span>
+                        <i id="icon6" class="i bi-stopwatch-fill"></i><span> Começar coleta</span>
                     </a>
                 </li>
                 <hr>
@@ -79,6 +88,7 @@
 
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/js/darkmode.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {

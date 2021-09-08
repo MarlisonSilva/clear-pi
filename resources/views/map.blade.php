@@ -46,13 +46,13 @@
 						</a>
 					</li>
 					<li class="navigation-item">
-						<a href="#">
+						<a href="{{ url('/template') }}">
 							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
 							<span>Action</span>
 						</a>
 					</li>
 					<li class="navigation-item active">
-						<a href="#" onclick="mode();">Mode</a>
+						<a href="#" onclick="toggleMode();">Mode</a>
 					</li>
 					<li class="navigation-item login">
 						<a href="#">Logar</a>
@@ -65,8 +65,9 @@
 		</nav>
 	</div>
 	<div id="map"></div>
+
 	<script src="{{ asset('assets/js/map.js') }}"></script>
-	
+	<script src="{{ asset('assets/js/darkmode.js') }}"></script>
 	<!-- BOOTSTRAP -->
 	<script src="{{ asset('assets/js/jquery.min.js')}}"></script>
 	<script src="{{ asset('assets/js/bootstrap.js')}}"></script>
