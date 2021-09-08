@@ -2,11 +2,10 @@
 // MAP
 const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
 let mapStyle;
-if( prefersColorScheme.matches || document.body.className == "dark-mode") {
+if(prefersColorScheme.matches || document.body.className == "dark-mode") {
     mapStyle = 'mapbox://styles/mapbox/navigation-night-v1';
 } else {
     mapStyle = 'mapbox://styles/mapbox/streets-v11';
-
 }
 
 

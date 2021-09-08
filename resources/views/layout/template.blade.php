@@ -19,7 +19,7 @@
     <div class="wrapper">
 
         {{-- SideBar --}}
-        <nav id="sidebar" class="dark-scheme">
+        <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>C.L.E.A.R</h3>
             </div>
@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="modeHome();">
+                    <a href="#" onclick="toggleMode();">
                         <i id="icon5" class="bi bi-moon-stars-fill"></i><span> Mudar Tema</span>
                     </a>
                 </li>

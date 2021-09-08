@@ -1,17 +1,32 @@
 // DARK MODE
-function modeMap() {
-    console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
-    var element = document.body;
-    element.classList.toggle("dark-mode");
-    if( prefersColorScheme.matches || document.body.className == "dark-mode") {
-        map.setStyle('mapbox://styles/mapbox/navigation-night-v1');
-    } else {
-        map.setStyle('mapbox://styles/mapbox/streets-v11');
-    }
+var mapExist = typeof map != 'undefined';
+var element = document.body;
+
+console.log(document.title);
+
+// A função vai sempre ser usada em botões clicáveis, ela irá mudar o tema;
+function toggleMode() {
+    element.classList.toggle('dark-mode');
+    if(mapExist) {
+        if(element.classList.contains('dark-mode')) {
+            map.setStyle('mapbox://styles/mapbox/navigation-night-v1');
+        } else {
+            map.setStyle('mapbox://styles/mapbox/streets-v11');
+        }
+    } else {}
 }
 
-function modeHome() {
-    console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
+/*    // Primeiro IF tem que achar o map e o darkmode ser true
+if(elementTitle == "Mapa") {
+    map.setStyle('mapbox://styles/mapbox/navigation-night-v1');
+// Segundo IF tem que achar o map e o darkmode ser false
+} else if (elementTitle == "Mapa" && darkMode == false){
+    map.setStyle('mapbox://styles/mapbox/streets-v11');
+
+// Terceiro IF não pode achar o map e o darkmode tem de ser true
+} else if (elementTitle != "Mapa" && darkMode == true){
+    console.log(map);
+    console.log("oi");
     var element = document.body;
     element.classList.toggle("dark-mode");
 
@@ -59,6 +74,6 @@ function modeHome() {
         icon6.classList.remove("bi-stopwatch");
         icon6.classList.add("bi-stopwatch-fill");
     }
-
 }
 
+*/ 
