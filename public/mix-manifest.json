@@ -1,5 +1,7 @@
 {
     "/assets/css/style.css": "/assets/css/style.css",
     "/assets/js/jquery.js": "/assets/js/jquery.js",
-    "/assets/js/bootstrap.js": "/assets/js/bootstrap.js"
+    "/assets/js/bootstrap.js": "/assets/js/bootstrap.js",
+    "/assets/js/bootstrap-select.min.js": "/assets/js/bootstrap-select.min.js",
+    "/assets/css/bootstrap-select.min.css": "/assets/css/bootstrap-select.min.css"
 }
