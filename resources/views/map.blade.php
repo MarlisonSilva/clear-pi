@@ -19,43 +19,37 @@
 
 		<nav class="navigation-bar">
 			<div class="navigation">
-				<h1 class="navigation-title">Título</h1>
+				<h1 class="navigation-title">C.L.E.A.R</h1>
 				<ul class="navigation-content">
-					<li class="navigation-item active">
+					<li class="navigation-item">
 						<a href="#">
 							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-							<span>A very long Action</span>
+							<span>Caminhão X</span>
 						</a>
 					</li>
 					<li class="navigation-item">
 						<a href="#">
 							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-							<span>Action</span>
+							<span>Caminhão Y</span>
 						</a>
 					</li>
 					<li class="navigation-item">
 						<a href="#">
 							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-							<span>Action</span>
+							<span>Caminhão Z</span>
 						</a>
 					</li>
 					<li class="navigation-item">
 						<a href="#">
 							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-							<span>Action</span>
-						</a>
-					</li>
-					<li class="navigation-item">
-						<a href="{{ url('/template') }}">
-							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-							<span>Action</span>
+							<span>Caminhão W</span>
 						</a>
 					</li>
 					<li class="navigation-item active">
 						<a href="#" onclick="toggleMode();">Mode</a>
 					</li>
 					<li class="navigation-item login">
-						<a href="#">Logar</a>
+						<a href="{{ url("/login") }}">Logar</a>
 					</li>
 				</ul>	
 			</div>

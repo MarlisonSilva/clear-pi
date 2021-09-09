@@ -21,6 +21,19 @@ use App\Http\Controllers\temporary\ZoneTempController;
 |
 */
 
+// Login e Register
+
+Route::get('/clean', function(){
+    return view('layout/clean-template');
+});
+Route::get('/login', function () {
+    return view('authentication/login');
+});
+
+Route::get('/register', function () {
+    return view('authentication/register');
+});
+
 Route::get('/', function () {
     return view('map');
 });

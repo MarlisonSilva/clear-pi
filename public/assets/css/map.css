@@ -32,6 +32,8 @@ body a{
 .navigation{
     background-color: #ffffff;
     height: 100%;
+    width: 250px;
+    padding: 5px;
 }
 
 .navigation.disable{
@@ -43,7 +45,7 @@ body a{
     list-style: none;
     padding: 1rem .5rem 1rem 0;
     display: block;
-    width: max(15vw, 12rem);
+    min-width: max(5vw, 19vw);
 }
 
 .navigation-title{
@@ -142,6 +144,7 @@ body a{
     .navigation{
         background-color: #ffffff;
         transition: 0.3s;
+        width: 600px;
     
     }
     
@@ -207,7 +210,8 @@ body a{
     
     .navigation-item a:hover, 
     .navigation-item:hover{
-        color: #cd9a03;
+        background-color: #cd9a03;
+        color: white;
     }
 
     .navigation-item.active{
@@ -216,7 +220,8 @@ body a{
 
     .navigation-item.active:hover,
     .navigation-item.active a:hover{
-        color: #000000;
+        color: white;
+
     }
 
 }
@@ -232,6 +237,7 @@ body a{
 .dark-mode .navigation-item a:hover, 
 .dark-mode .navigation-item:hover{
     color: #000000;
+    background-color: grey;
 }
 
 .dark-mode .navigation-item.active{
@@ -241,4 +247,5 @@ body a{
 .dark-mode .navigation-item.active:hover,
 .dark-mode .navigation-item.active a:hover{
     color: #ffffff;
+    background-color: grey;
 }
