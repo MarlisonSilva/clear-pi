@@ -1,6 +1,7 @@
 @extends('layout.clean-template')
 @section('styles')
     <link rel="stylesheet" href="{{ asset('assets/css/authentication.css') }}">
+    <title>Register</title>
 @section('content')
     <div class="container-fluid">
         <h1 class="text-center">Registre-se Agora!</h1>
