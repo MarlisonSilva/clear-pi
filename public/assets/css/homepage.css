@@ -111,12 +111,12 @@ table, th, td {
 
 /* Light Mode */
 
-body {
-    background-color: white;
+#content {
+    background-color: rgba(247, 245, 229, 0.658);
 }
 
 #sidebar {
-    background: white;
+    background-color: white;
     color: black;
 }
 
@@ -132,6 +132,10 @@ body {
 th {
     background-color: #e7c869;
     color: black;
+}
+
+td {
+    background-color: white;
 }
 
 /* Dark Mode */
