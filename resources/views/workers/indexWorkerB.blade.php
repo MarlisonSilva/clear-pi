@@ -5,32 +5,25 @@
 <table>
     <thead>
         <tr>
-            <th>Ação</th>
-            <th>Bla bla bla</th>
-            <th>Bla bla bla</th>
+            <th>Nome</th>
+            <th>Matrícula</th>
+            <th>Carga Horária</th>
+            <th>Telefone</th>
+            <th colspan="2">Ações</th>
         </tr>
     </thead>
     <tbody>
         <tr>
+            <td>Nome</td>
+            <td>Matrícula</td>
+            <td>Carga Horária</td>
+            <td>Telefone</td>
             <td>
                 <a href="{{ route('workers.edit', 0) }}">Editar</a>
             </td>
-            <td>Bla bla bla</td>
-            <td>Bla bla bla</td>
-        </tr>
-        <tr>
             <td>
-                <a href="{{ route('workers.edit', 1) }}">Editar</a>
+                <a href="{{ route('workers.edit', 0) }}">Editar</a>
             </td>
-            <td>Bla bla bla</td>
-            <td>Bla bla bla</td>
-        </tr>
-        <tr>
-            <td>
-                <a href="{{ route('workers.edit', 2) }}">Editar</a>
-            </td>
-            <td>Bla bla bla</td>
-            <td>Bla bla bla</td>
         </tr>
     </tbody>
 </table>

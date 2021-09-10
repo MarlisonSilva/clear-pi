@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class ZoneController extends Controller
 {
+
+    function __construct(){
+        include(app_path()."/includes/php/DBConfig.php");
+        $this->connection = $connection;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +20,7 @@ class ZoneController extends Controller
      */
     public function index()
     {
-        include(app_path()."/includes/php/DBConfig.php");
-        $response = $connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas");
+        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas");
         return view('zones/indexZoneB', ["data" => $response]);
     }
     
@@ -38,8 +42,7 @@ class ZoneController extends Controller
      */
     public function store(Request $request)
     {
-        include(app_path()."/includes/php/DBConfig.php");
-        $connection->query("INSERT INTO TB_ZONAS (ZON_NOME, ZON_HRFUNCIONAMENTO) VALUES ('$request->nome', '$request->horario')");
+        $this->connection->query("INSERT INTO TB_ZONAS (ZON_NOME, ZON_HRFUNCIONAMENTO) VALUES ('$request->nome', '$request->horario')");
         return Redirect::to("zones");
     }
     
@@ -62,8 +65,7 @@ class ZoneController extends Controller
      */
     public function edit($id)
     {
-        include(app_path()."/includes/php/DBConfig.php");
-        $response = $connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas WHERE ZON_ID = $id");
+        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas WHERE ZON_ID = $id");
         return view('zones/editZoneB', ["data" => $response]);
     }
     
@@ -76,8 +78,7 @@ class ZoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        include(app_path()."/includes/php/DBConfig.php");
-        $connection->query("UPDATE TB_ZONAS SET ZON_NOME = '$request->nome', ZON_HRFUNCIONAMENTO = '$request->horario' WHERE ZON_ID = $id");
+        $this->connection->query("UPDATE TB_ZONAS SET ZON_NOME = '$request->nome', ZON_HRFUNCIONAMENTO = '$request->horario' WHERE ZON_ID = $id");
         return Redirect::to("zones");
     }
     
@@ -89,8 +90,7 @@ class ZoneController extends Controller
      */
     public function destroy($id)
     {
-        include(app_path()."/includes/php/DBConfig.php");
-        $connection->query("DELETE FROM TB_ZONAS WHERE ZON_ID = $id");
+        $this->connection->query("DELETE FROM TB_ZONAS WHERE ZON_ID = $id");
         return Redirect::to("zones");
     }
 }
