@@ -78,7 +78,7 @@
                 </div>
             </nav>
 
-            <div id="main">
+            <div class="container mx-2 my-3">
                 @yield('content')
             </div>  
         </nav>
