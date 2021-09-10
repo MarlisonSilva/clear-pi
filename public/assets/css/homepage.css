@@ -111,29 +111,27 @@ table, th, td {
 
 /* Light Mode */
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: white;
-    }
-    
-    #sidebar {
-        background: white;
-        color: black;
-    }
-    
-    #sidebar ul li a:hover {
-        background: #f0d278;
-        
-    }
-    #header {
-        background-color: #e7c869;
+body {
+    background-color: white;
+}
 
-    }
+#sidebar {
+    background: white;
+    color: black;
+}
+
+#sidebar ul li a:hover {
+    background: #f0d278;
     
-    th {
-        background-color: #e7c869;
-        color: black;
-    }
+}
+#header {
+    background-color: #e7c869;
+
+}
+
+th {
+    background-color: #e7c869;
+    color: black;
 }
 
 /* Dark Mode */
