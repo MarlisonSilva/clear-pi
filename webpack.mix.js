@@ -15,4 +15,7 @@ mix
     .sass('resources/views/scss/style.scss','public/assets/css/style.css')
     .scripts('node_modules/jquery/dist/jquery.js', 'public/assets/js/jquery.js')
     .scripts('node_modules/bootstrap/dist/js/bootstrap.bundle.js','public/assets/js/bootstrap.js')
+    .scripts('node_modules/bootstrap-select/dist/js/bootstrap-select.min.js','public/assets/js/bootstrap-select.min.js')
+    .styles('node_modules/bootstrap-select/dist/css/bootstrap-select.min.css','public/assets/css/bootstrap-select.min.css')
+    
 ;

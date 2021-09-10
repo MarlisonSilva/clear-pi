@@ -2,11 +2,10 @@
 // MAP
 const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
 let mapStyle;
-if( prefersColorScheme.matches || document.body.className == "dark-mode") {
+if(prefersColorScheme.matches || document.body.className == "dark-mode") {
     mapStyle = 'mapbox://styles/mapbox/navigation-night-v1';
 } else {
     mapStyle = 'mapbox://styles/mapbox/streets-v11';
-
 }
 
 
@@ -29,6 +28,7 @@ map.addControl(
     showUserHeading: true
     })
 );
+map.addControl(new mapboxgl.FullscreenControl());
 
 
 // Toggle navigation
@@ -40,25 +40,3 @@ function navigationToggle(){
         navigation.classList.remove("disable");
     }
 }
-
-
-// DARK MODE
-function mode() {
-    console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
-    var element = document.body;
-    element.classList.toggle("dark-mode");
-    if( prefersColorScheme.matches || document.body.className == "dark-mode") {
-        map.setStyle('mapbox://styles/mapbox/navigation-night-v1');
-    } else {
-        map.setStyle('mapbox://styles/mapbox/streets-v11');
-    }
-    
-}
-
-if( prefersColorScheme.matches || document.body.className == "dark-mode") {
-    map.setStyle('mapbox://styles/mapbox/navigation-night-v1');
-} else {
-    map.setStyle('mapbox://styles/mapbox/streets-v11');
-}
-
-

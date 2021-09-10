@@ -1,0 +1,9 @@
+.redirect {
+    opacity: 60%;
+    text-decoration: none;
+    color: white;
+}
+
+.redirect:active {
+    color: blue;
+}

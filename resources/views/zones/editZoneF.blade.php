@@ -54,7 +54,7 @@
             <button type="submit" class="btn btn-primary px-5"><i class="fa fa-road"></i> Confirmar</button>
         </div>
 
-        <div class="form-group mt-2 mb-5">
+        <div class="form-group mt-2 mb-3">
             <a class="btn btn-outline-danger px-5" href="javascript:history.back()"><i class="icon-trash"></i> Cancelar</a>
         </div>
     </form>

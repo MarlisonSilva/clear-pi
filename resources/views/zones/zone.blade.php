@@ -4,7 +4,7 @@
 <h1>Listagem de Zonas!</h1> 
 <h2>
     <a href="#">
-        <i class="bi bi-plus-circle-fill"></i>
+        <a href="{{ route('zonesTemp.create') }}" ><i class="bi bi-plus-circle-fill"></i></a>
     </a>
 </h2>
 <table>
@@ -14,18 +14,18 @@
         <th>Dia(s) de Funcionamento</th>
     </tr>
     <tr>
-        <td><a href="#indexId">Norte</a></td>
+        <td><a href="{{ route('zonesTemp.edit', 0) }}">Norte</a></td>
         <td>12h~16h</td>
         <td>Quarta/Sábado/Quinta</td>
 
     </tr>
     <tr>
-        <td><a href="#indexId">Leste</a></td>
+        <td><a href="{{ route('zonesTemp.edit', 0) }}">Leste</a></td>
         <td>12h~16h</td>
         <td>Segunda/Terça</td>
     </tr>
     <tr>
-        <td><a href="#indexId">Sul</a></td>
+        <td><a href="{{ route('zonesTemp.edit', 0) }}">Sul</a></td>
         <td>12h~18h</td>
         <td>Segunda/Terça/Quarta/Quinta/Sexta/Sábado</td>
     </tr>

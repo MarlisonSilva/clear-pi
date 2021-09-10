@@ -3,7 +3,7 @@
 <h1>Listagem de Funcionários!</h1> 
 <h2>
     <a href="#">
-        <i class="bi bi-plus-circle-fill"></i>
+        <a href="{{ route('workersTemp.create') }}" ><i class="bi bi-plus-circle-fill"></i></a>
     </a>
 </h2>
 <table>
@@ -14,20 +14,20 @@
         <th>Telefone</th>
     </tr>
     <tr>
-        <td><a href="#indexId">Carlinho Faria</a></td>
+        <td><a href="{{ route('workersTemp.edit', 0) }}">Carlinho Faria</a></td>
         <td>14546432</td>
         <td>8h~16h</td>
         <td>2222-2222</td>
 
     </tr>
     <tr>
-        <td><a href="#indexId">Patricio Pereira</a></td>
+        <td><a href="{{ route('workersTemp.edit', 0) }}">Patricio Pereira</a></td>
         <td>24647542</td>
         <td>7h~18h</td>
         <td>3333-3333</td>
     </tr>
     <tr>
-        <td><a href="#indexId">Robson Dantas</a></td>
+        <td><a href="{{ route('workersTemp.edit', 0) }}">Robson Dantas</a></td>
         <td>33636746</td>
         <td>5h~10h</td>
         <td>1111-1111</td>
