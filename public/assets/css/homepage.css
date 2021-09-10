@@ -89,10 +89,12 @@ h2 {
 
 #content {
     background-color: lightgray;
+
+    
 }
 
 #sidebar {
-    background: white;
+    background-color: white;
     color: black;
 }
 
@@ -108,6 +110,10 @@ h2 {
 th {
     background-color: #e7c869;
     color: black;
+}
+
+td {
+    background-color: white;
 }
 
 /* Dark Mode */
