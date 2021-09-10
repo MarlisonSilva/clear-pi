@@ -45,11 +45,11 @@
 							<span>Caminhão W</span>
 						</a>
 					</li>
-					<li class="navigation-item ">
+					<li class="navigation-item active">
 						<a href="#" onclick="toggleMode();">Mode</a>
 					</li>
-					<li class="navigation-item ">
-						<a href="{{ url("/login") }}">Logar</a>
+					<li class="navigation-item login">
+						<a href="{{ url('/login') }}">Logar</a>
 					</li>
 				</ul>	
 			</div>

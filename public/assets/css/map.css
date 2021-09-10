@@ -32,8 +32,6 @@ body a{
 .navigation{
     background-color: #ffffff;
     height: 100%;
-    width: 250px;
-    padding: 5px;
 }
 
 .navigation.disable{
@@ -45,7 +43,7 @@ body a{
     list-style: none;
     padding: 1rem .5rem 1rem 0;
     display: block;
-    min-width: max(5vw, 19vw);
+    width: max(15vw, 12rem);
 }
 
 .navigation-title{
@@ -144,7 +142,6 @@ body a{
     .navigation{
         background-color: #ffffff;
         transition: 0.3s;
-        width: 600px;
     
     }
     
@@ -167,6 +164,11 @@ body a{
         padding: .3rem;
         border-radius: 10px;
         width: 13vw;
+    }
+    
+    .navigation-item a{
+        display: flex;
+        justify-content: center;
     }
 
     .navigation-content .icon{
@@ -199,32 +201,31 @@ body a{
 
 /* DARK THEME */
 
-@media (prefers-color-scheme: dark) {
-    .navigation-bar{
-        background-color: #213242;
-    }
 
-    .navigation-item{
-        color: #ffffff;
-    }
-    
-    .navigation-item a:hover, 
-    .navigation-item:hover{
-        background-color: #cd9a03;
-        color: white;
-    }
-
-    .navigation-item.active{
-        background-color: #cd9a03;
-    }
-
-    .navigation-item.active:hover,
-    .navigation-item.active a:hover{
-        color: white;
-
-    }
-
+.dark-mode .navigation-toggle{
+    background-color: #517490a8;
 }
+
+.dark-mode .navigation-item a{
+    color: #ffffff;
+}
+    
+.dark-mode .navigation-item a:hover, 
+.dark-mode .navigation-item:hover{
+    color: #cd9a03;
+}
+
+.dark-mode .navigation-item.active{
+    background-color: #cd9a03;
+}
+
+.dark-mode .navigation-item.active:hover,
+.dark-mode .navigation-item.active a:hover,
+.dark-mode .navigation-item.login:hover,
+.dark-mode .navigation-item.login a:hover{
+    color: #000000;
+}
+
 
 .dark-mode .navigation{
     background-color: #3c5a72;
@@ -237,15 +238,16 @@ body a{
 .dark-mode .navigation-item a:hover, 
 .dark-mode .navigation-item:hover{
     color: #000000;
-    background-color: grey;
 }
 
-.dark-mode .navigation-item.active{
+.dark-mode .navigation-item.active,
+.dark-mode .navigation-item.login{
     background-color: #517490;
 }
 
 .dark-mode .navigation-item.active:hover,
-.dark-mode .navigation-item.active a:hover{
-    color: #ffffff;
-    background-color: grey;
+.dark-mode .navigation-item.active a:hover,
+.dark-mode .navigation-item.login:hover,
+.dark-mode .navigation-item.login a:hover{
+    color: #213242;
 }
