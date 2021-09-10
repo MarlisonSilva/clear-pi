@@ -79,40 +79,16 @@ h2 {
     margin-left: 5px;
 }
 
-/* Table Edit */
 
-table, th, td {
-    border:1px solid black;
-    padding: 10px;
-    overflow: hidden;
-    font-size-adjust: 22px;
-}
-
-@media screen and (min-width: 320px) and (max-width: 411px) {
-    tr, th, td {
-        padding: 5px;
-        font-size: 10px;
+@media  screen and (max-width: 780px) {
+    span.criar{
+        display: none;
     }
 }
-
-@media screen and (width: 280px){
-    tr, th, td {
-        padding: 5px;
-        font-size: 7px;
-    }
-}
-
-@media screen and (min-width: 412px) and (max-width: 540px ) {
-    tr, th, td {
-        padding: 5px;
-        font-size: small;
-    }
-}
-
 /* Light Mode */
 
-body {
-    background-color: white;
+#content {
+    background-color: lightgray;
 }
 
 #sidebar {

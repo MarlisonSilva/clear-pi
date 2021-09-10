@@ -78,7 +78,7 @@
                 </div>
             </nav>
 
-            <div class="container mx-2 my-3">
+            <div class="container my-3">
                 @yield('content')
             </div>  
         </nav>
@@ -96,6 +96,7 @@
                 $('#content').toggleClass('active');
             });
         });
+
     </script>
 </body>
 </html>
