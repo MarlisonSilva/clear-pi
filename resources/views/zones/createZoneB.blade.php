@@ -14,40 +14,18 @@
         <div class="form-group">
             
             <label for="funcionamento">Dias de funcionamento</label>
-            <div class="row" id="tabela-dias">   
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="domingo" id="domingo">
-                    <label class="custom-control-label" for="domingo" id="dia-checkbox">Domingo</label>
-                </div>
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="segunda" id="segunda">
-                    <label class="custom-control-label" for="segunda" id="dia-checkbox">Segunda</label>
-                </div>
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="terca" id="terca">
-                    <label class="custom-control-label" for="terca" id="dia-checkbox">Terça</label>
-                </div>
-            </div>
-            <div class="row" id="tabela-dias">
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="quarta" id="quarta">
-                    <label class="custom-control-label" for="quarta" id="dia-checkbox">Quarta</label>
-                </div>
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="quinta" id="quinta">
-                    <label class="custom-control-label" for="quinta" id="dia-checkbox">Quinta</label>
-                </div>
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="sexta" id="sexta">
-                    <label class="custom-control-label" for="sexta" id="dia-checkbox">Sexta</label>
-                </div>
-            </div>
-            <div class="row" id="tabela-dias">
-                <div class="custom-control custom-checkbox col">
-                    <input type="checkbox" class="custom-control-input" name="sabado" id="sabado">
-                    <label class="custom-control-label" for="sabado" id="dia-checkbox">Sábado</label>
-                </div>
-            </div>  
+                @for ($i = 0; $i < count($dias); $i++)
+                    @if ($i % 3 == 0 || $i == 0)
+                        <div class="row" id="tabela-dias">   
+                    @endif
+                        <div class="custom-control custom-checkbox col">
+                            <input type="checkbox" class="custom-control-input" name={{strtolower($dias[$i])}} id={{strtolower($dias[$i])}}/>
+                            <label class="custom-control-label" for={{strtolower($dias[$i])}} id="dia-checkbox">{{$dias[$i]}}</label>
+                        </div>
+                    @if (($i+1) % 3 == 0 || $i == count($dias)-1)
+                        </div>
+                    @endif
+                @endfor
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-light px-5"><i class="fa fa-road"></i> Criar</button>

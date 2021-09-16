@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class TruckController extends Controller
 {
+
+    function __construct(){
+        include(app_path()."/includes/php/DBConfig.php");
+        $this->connection = $connection;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,8 @@ class TruckController extends Controller
      */
     public function index()
     {
-        return view('trucks/indexTruckB');
+        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas");
+        return view('trucks/indexTruckB',  ["data" => $response]);
 
     }
 

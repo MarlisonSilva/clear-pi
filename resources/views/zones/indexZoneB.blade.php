@@ -17,15 +17,15 @@
                 <tr>
                     <td>{{$zone["ZON_NOME"]}}</td>
                     <td>{{$zone["ZON_HRFUNCIONAMENTO"] . "h"}}</td>
-                    <td>Dia Funcionamento</td>
+                    <td>{{$zone["ZON_DIASFUNCIONAMENTO"]}}</td>
                     <td>
                         <a href="{{ route('zones.edit', $zone["ZON_ID"]) }}">Editar</a>
                     </td>
                     <td>
-                        <form id="form_delete" action={{ route('zones.destroy', $zone["ZON_ID"]) }} method="POST">
+                        <form id={{"form_delete_" . $zone["ZON_ID"]}} action={{ route('zones.destroy', $zone["ZON_ID"]) }} method="POST">
                             @method("DELETE")
                             @csrf
-                            <a href="javascript:{}" onclick="document.getElementById('form_delete').submit();">Excluir</a>
+                            <a href="#" onclick="document.getElementById(`{{'form_delete_' . $zone['ZON_ID']}}`).submit();">Excluir</a>
                         </form>
                     </td>
                 </tr>

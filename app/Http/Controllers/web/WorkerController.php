@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class WorkerController extends Controller
 {
+
+    function __construct(){
+        include(app_path()."/includes/php/DBConfig.php");
+        $this->connection = $connection;
+    }
+
     /**
      * Display a listing of the resource.
      *

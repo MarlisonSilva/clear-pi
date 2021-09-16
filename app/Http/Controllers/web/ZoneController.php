@@ -12,7 +12,25 @@ class ZoneController extends Controller
     function __construct(){
         include(app_path()."/includes/php/DBConfig.php");
         $this->connection = $connection;
+        $this->diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"];
     }
+
+    private function fazerDiasFunc(Request $request){
+        $dias = [$request->segunda, $request->terca, $request->quarta, $request->quinta, $request->sexta, $request->sábado, $request->domingo];
+
+        $diasFuncionamento = "";
+        for ($c=0; $c < count($dias); $c++) { 
+            if($dias[$c]){
+                if($diasFuncionamento == ""){
+                    $diasFuncionamento = $this->diasSemana[$c];
+                }else{
+                    $diasFuncionamento.= ", " . $this->diasSemana[$c];
+                }
+            }
+        }
+        return $diasFuncionamento;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +38,7 @@ class ZoneController extends Controller
      */
     public function index()
     {
-        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas");
+        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM tb_zonas");
         return view('zones/indexZoneB', ["data" => $response]);
     }
     
@@ -31,7 +49,7 @@ class ZoneController extends Controller
      */
     public function create()
     {
-        return view('zones/createZoneB');
+        return view('zones/createZoneB', ["dias" => $this->diasSemana]);
     }
     
     /**
@@ -42,7 +60,8 @@ class ZoneController extends Controller
      */
     public function store(Request $request)
     {
-        $this->connection->query("INSERT INTO TB_ZONAS (ZON_NOME, ZON_HRFUNCIONAMENTO) VALUES ('$request->nome', '$request->horario')");
+        $diasFuncionamento = $this->fazerDiasFunc($request);
+        $this->connection->query("INSERT INTO TB_ZONAS (ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO) VALUES ('$request->nome', '$request->horario', '$diasFuncionamento')");
         return Redirect::to("zones");
     }
     
@@ -65,8 +84,28 @@ class ZoneController extends Controller
      */
     public function edit($id)
     {
-        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas WHERE ZON_ID = $id");
-        return view('zones/editZoneB', ["data" => $response]);
+        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM tb_zonas WHERE ZON_ID = $id");
+        
+        foreach ($response as $data) {
+            $dias = explode(", ", $data["ZON_DIASFUNCIONAMENTO"]);
+            $diasSelec = [false];
+            $dia = 0;
+
+            for ($i=0; $i < count($this->diasSemana); $i++) {
+                if(count($dias) > $dia){
+                    if($dias[$dia] == $this->diasSemana[$i]){
+                        $diasSelec[$i] = true;
+                        $dia++;
+                    }else{
+                        $diasSelec[$i] = false;
+                    }
+                }else if(count($diasSelec) < count($this->diasSemana)){
+                    $diasSelec[$i] = false;
+                }
+            }
+        }
+
+        return view('zones/editZoneB', ["data" => $response, "diasSelec" => $diasSelec, "dias" => $this->diasSemana]);
     }
     
     /**
@@ -78,7 +117,7 @@ class ZoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->connection->query("UPDATE TB_ZONAS SET ZON_NOME = '$request->nome', ZON_HRFUNCIONAMENTO = '$request->horario' WHERE ZON_ID = $id");
+        $this->connection->query("UPDATE TB_ZONAS SET ZON_NOME = '$request->nome', ZON_HRFUNCIONAMENTO = '$request->horario', ZON_DIASFUNCIONAMENTO = '$this->fazerDiasFunc($request)' WHERE ZON_ID = $id");
         return Redirect::to("zones");
     }
     
@@ -90,6 +129,7 @@ class ZoneController extends Controller
      */
     public function destroy($id)
     {
+        echo($id);
         $this->connection->query("DELETE FROM TB_ZONAS WHERE ZON_ID = $id");
         return Redirect::to("zones");
     }
