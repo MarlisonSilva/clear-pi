@@ -31,7 +31,11 @@
                     <a href="{{ route('workers.edit', $funcionario["FUN_ID"]) }}">Editar</a>
                 </td>
                 <td>
-                    <a href="{{ route('workers.destroy', $funcionario["FUN_ID"]) }}">Excluir</a>
+                    <form id={{"form_delete_" . $funcionario["FUN_ID"]}} action="{{ route('workers.destroy', $funcionario["FUN_ID"]) }}" method="POST">
+                        @method("DELETE")
+                        @csrf
+                        <a href="#" onclick="document.getElementById(`{{'form_delete_' . $funcionario['FUN_ID']}}`).submit();">Excluir</a>
+                    </form>
                 </td>
             </tr>
         @endforeach

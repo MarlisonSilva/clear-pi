@@ -21,10 +21,8 @@ class WorkerController extends Controller
      */
     public function index()
     {
-
         $response = $this->connection->query("SELECT * FROM TB_FUNCIONARIOS");
         $response2 = $this->connection->query("SELECT * FROM TB_TEL_FUNCIONARIOS");
-        
 
         return view('workers/indexWorkerB', ["funcionarios" => $response, "telefones" => $response2]);
     }
@@ -98,6 +96,9 @@ class WorkerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->connection->query("DELETE FROM TB_CAM_FUNC WHERE CAF_FUN_ID = $id");
+        $this->connection->query("DELETE FROM TB_TEL_FUNCIONARIOS WHERE TEF_FUN_ID = $id");
+        $this->connection->query("DELETE FROM TB_FUNCIONARIOS WHERE FUN_ID = $id");
+        return Redirect::to("workers");
     }
 }
