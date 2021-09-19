@@ -105,7 +105,13 @@ class ZoneController extends Controller
             }
         }
 
-        return view('zones/editZoneB', ["data" => $response, "diasSelec" => $diasSelec, "dias" => $this->diasSemana]);
+        return view(
+            'zones/editZoneB',
+            [
+                "data" => $response,
+                "diasSelec" => $diasSelec,
+                "dias" => $this->diasSemana
+            ]);
     }
     
     /**

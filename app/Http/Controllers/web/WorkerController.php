@@ -73,7 +73,9 @@ class WorkerController extends Controller
      */
     public function edit($id)
     {
-        return view('workers/editWorkerF');
+        $response = $this->connection->query("SELECT * FROM TB_FUNCIONARIOS WHERE FUN_ID = $id");
+        $response2 = $this->connection->query("SELECT TEF_TELEFONE FROM TB_TEL_FUNCIONARIOS WHERE TEF_FUN_ID = $id");
+        return view('workers/editWorkerB', ["data" => $response, "telefone" => $response2]);
     }
 
     /**
@@ -85,7 +87,9 @@ class WorkerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->connection->query("UPDATE TB_FUNCIONARIOS SET FUN_NOME = '$request->nome', FUN_MATRICULA = '$request->matricula', FUN_CH = '$request->cargaH' WHERE FUN_ID = $id");
+        $this->connection->query("UPDATE TB_TEL_FUNCIONARIOS SET TEF_TELEFONE = '$request->telefone' WHERE TEF_FUN_ID = $id");
+        return Redirect::to("workers");
     }
 
     /**
