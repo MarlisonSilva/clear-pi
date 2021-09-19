@@ -4,6 +4,8 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use League\CommonMark\Extension\CommonMark\Node\Block\ListItem;
 
 class TruckController extends Controller
 {
@@ -13,6 +15,24 @@ class TruckController extends Controller
         $this->connection = $connection;
     }
 
+    private function getList($response, $prefixes, $tables, $ids, $last){
+        $zonas = [];
+        $last1 = $last[0];
+        $last2 = $last[1];
+        foreach ($response as $r) {
+            $response2 = $this->connection->query("SELECT $prefixes[0]_ID FROM $tables[0] WHERE $ids[0] = $r[$last1]");
+            $zs = [];
+            foreach ($response2 as $r2) {
+                $response3 = $this->connection->query("SELECT $prefixes[1]_NOME FROM $tables[1] WHERE $ids[1] = $r2[$last2]");
+                foreach ($response3 as $r3) {
+                    array_push($zs, $r3["$prefixes[1]_NOME"]);
+                }
+            }
+            array_push($zonas, $zs);
+        }
+        return $zonas;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +40,15 @@ class TruckController extends Controller
      */
     public function index()
     {
-        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO FROM tb_zonas");
-        return view('trucks/indexTruckB',  ["data" => $response]);
+        $response = $this->connection->query("SELECT CAM_ID, CAM_NOME FROM TB_CAMINHOES");
 
+        return view(
+            'trucks/indexTruckB',
+            [
+                "data" => $response,
+                "zonas" => $this->getList($response, ["ZOC_ZON", "ZON"], ["TB_ZONAS_CAM", "TB_ZONAS"], ["ZOC_CAM_ID", "ZON_ID"], ["CAM_ID", "ZOC_ZON_ID"]),
+                "funcionarios" => $this->getList($response, ["CAF_FUN", "FUN"], ["TB_CAM_FUNC", "TB_FUNCIONARIOS"], ["CAF_CAM_ID", "FUN_ID"], ["CAM_ID", "CAF_FUN_ID"])
+            ]);
     }
 
     /**
@@ -66,8 +92,18 @@ class TruckController extends Controller
      */
     public function edit($id)
     {
-        return view('trucks/editTruckB');
-
+        $response = $this->connection->query("SELECT CAM_ID, CAM_NOME FROM TB_CAMINHOES WHERE CAM_ID = $id");
+        $response2 = $this->connection->query("SELECT ZON_ID, ZON_NOME FROM TB_ZONAS");
+        $response3 = $this->connection->query("SELECT FUN_ID, FUN_NOME FROM TB_FUNCIONARIOS");
+        return view(
+            'trucks/editTruckB',
+            [
+                "camData" => $response,
+                "zonas" => $response2,
+                "funcionarios" => $response3,
+                "zonasCam" => $this->connection->query("SELECT ZOC_ZON_ID FROM TB_ZONAS_CAM WHERE ZOC_CAM_ID = $id"),
+                "funcionariosCam" => $this->connection->query("SELECT CAF_FUN_ID FROM TB_CAM_FUNC WHERE CAF_CAM_ID = $id")
+            ]);
     }
 
     /**
@@ -79,7 +115,18 @@ class TruckController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->connection->query("UPDATE TB_CAMINHOES SET CAM_NOME = '$request->nome' WHERE CAM_ID = $id");
+        $this->connection->query("DELETE FROM TB_ZONAS_CAM WHERE ZOC_CAM_ID = $id");
+        foreach ($request["zones"] as $zona) {
+            $this->connection->query("INSERT INTO TB_ZONAS_CAM (ZOC_CAM_ID, ZOC_ZON_ID) VALUES ($id, $zona)");
+        }
+        $this->connection->query("DELETE FROM TB_CAM_FUNC WHERE CAF_CAM_ID = $id");
+        foreach ($request["workers"] as $worker) {
+            $this->connection->query("INSERT INTO TB_CAM_FUNC (CAF_CAM_ID, CAF_FUN_ID) VALUES ($id, $worker)");
+        }
+        // $this->connection->query("UPDATE TB_MOT_CAM SET MOC = '$request->driver' WHERE MOC_CAM_ID = $id");
+        
+        return Redirect::to("trucks");
     }
 
     /**
@@ -90,6 +137,9 @@ class TruckController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->connection->query("DELETE FROM TB_ZONAS_CAM WHERE ZOC_CAM_ID = $id");
+        $this->connection->query("DELETE FROM TB_CAM_FUNC WHERE CAF_CAM_ID = $id");
+        $this->connection->query("DELETE FROM TB_CAMINHOES WHERE CAM_ID = $id");
+        return Redirect::to("trucks");
     }
 }

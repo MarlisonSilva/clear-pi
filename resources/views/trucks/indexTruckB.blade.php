@@ -5,33 +5,36 @@
 <table>
     <thead>
         <tr>
-            <th>Ação</th>
-            <th>Bla bla bla</th>
-            <th>Bla bla bla</th>
+            <th>Nome</th>
+            <th>Zonas</th>
+            <th>Motorista</th>
+            <th>Funcionários</th>
+            <th colspan="2">Ações</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                <a href="{{ route('trucks.edit', 0) }}">Editar</a>
-            </td>
-            <td>Bla bla bla</td>
-            <td>Bla bla bla</td>
-        </tr>
-        <tr>
-            <td>
-                <a href="{{ route('trucks.edit', 1) }}">Editar</a>
-            </td>
-            <td>Bla bla bla</td>
-            <td>Bla bla bla</td>
-        </tr>
-        <tr>
-            <td>
-                <a href="{{ route('trucks.edit', 2) }}">Editar</a>
-            </td>
-            <td>Bla bla bla</td>
-            <td>Bla bla bla</td>
-        </tr>
+        @if ($data !== false)
+            <?php $c = 0 ?>
+            @foreach ($data as $truck)
+                <tr>
+                    <td>{{$truck["CAM_NOME"]}}</td>
+                    <td>{{implode(" - ", $zonas[$c])}}</td>
+                    <td>MOTORISTA</td>
+                    <td>{{implode(" - ", $funcionarios[$c])}}</td>
+                    <td>
+                        <a href="{{ route('trucks.edit', $truck["CAM_ID"]) }}">Editar</a>
+                    </td>
+                    <td>
+                        <form id={{"form_delete_" . $truck["CAM_ID"]}} action="{{ route('trucks.destroy', $truck["CAM_ID"]) }}" method="POST">
+                            @method("DELETE")
+                            @csrf
+                            <a href="#" onclick="document.getElementById(`{{'form_delete_' . $truck['CAM_ID']}}`).submit();">Excluir</a>
+                        </form>
+                    </td>
+                </tr>
+                <?php $c++ ?>
+            @endforeach
+        @endif
     </tbody>
 </table>
 @endsection

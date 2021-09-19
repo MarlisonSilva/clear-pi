@@ -38,7 +38,7 @@ class ZoneController extends Controller
      */
     public function index()
     {
-        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM tb_zonas");
+        $response = $this->connection->query("SELECT ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM TB_ZONAS");
         return view('zones/indexZoneB', ["data" => $response]);
     }
     
@@ -84,7 +84,7 @@ class ZoneController extends Controller
      */
     public function edit($id)
     {
-        $response = $this->connection->query("select ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM tb_zonas WHERE ZON_ID = $id");
+        $response = $this->connection->query("SELECT ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM tb_zonas WHERE ZON_ID = $id");
         
         foreach ($response as $data) {
             $dias = explode(", ", $data["ZON_DIASFUNCIONAMENTO"]);
@@ -129,7 +129,6 @@ class ZoneController extends Controller
      */
     public function destroy($id)
     {
-        echo($id);
         $this->connection->query("DELETE FROM TB_ZONAS WHERE ZON_ID = $id");
         return Redirect::to("zones");
     }
