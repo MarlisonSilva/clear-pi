@@ -21,7 +21,12 @@ class WorkerController extends Controller
      */
     public function index()
     {
-        return view('workers/indexWorkerB');
+
+        $response = $this->connection->query("SELECT * FROM TB_FUNCIONARIOS");
+        $response2 = $this->connection->query("SELECT * FROM TB_TEL_FUNCIONARIOS");
+        
+
+        return view('workers/indexWorkerB', ["funcionarios" => $response, "telefones" => $response2]);
     }
 
     /**
