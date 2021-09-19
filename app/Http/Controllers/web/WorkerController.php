@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class WorkerController extends Controller
 {
@@ -41,7 +42,13 @@ class WorkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->connection->query("INSERT INTO TB_FUNCIONARIOS (FUN_NOME, FUN_CH, FUN_MATRICULA) VALUES ('$request->nome', '$request->cargaH', '$request->matricula')");
+        $response = $this->connection->query("SELECT FUN_ID FROM TB_FUNCIONARIOS WHERE FUN_ID = LAST_INSERT_ID()");
+        foreach ($response as $r) {
+            $this->connection->query("INSERT INTO TB_TEL_FUNCIONARIOS (TEF_FUN_ID, TEF_TELEFONE) VALUES ('$r[FUN_ID]', '$request->telefone')");
+        }
+        
+        return Redirect::to("workers");
     }
 
     /**

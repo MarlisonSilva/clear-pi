@@ -1,6 +1,7 @@
 @extends('layout.clean-template')
 @section('content')
     <form action="{{ route('workers.store') }}" method="POST">
+        @csrf
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome do funcionário">
