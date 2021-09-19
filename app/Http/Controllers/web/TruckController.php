@@ -58,8 +58,14 @@ class TruckController extends Controller
      */
     public function create()
     {
-        return view('trucks/createTruckB');
-        
+        $response = $this->connection->query("SELECT ZON_ID, ZON_NOME FROM TB_ZONAS");
+        $response2 = $this->connection->query("SELECT FUN_ID, FUN_NOME FROM TB_FUNCIONARIOS");
+        return view(
+            'trucks/createTruckB',
+            [
+                "zonas" => $response,
+                "funcionarios" => $response2
+            ]);
     }
 
     /**
@@ -70,7 +76,20 @@ class TruckController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->connection->query("INSERT INTO TB_CAMINHOES (CAM_NOME, CAM_TEMPOATIVO, CAM_QUILOMETRAGEM, CAM_STATUS, CAM_POSICAO) VALUES ('$request->nome', 0, 0, 0, 0)");
+        $response = $this->connection->query("SELECT CAM_ID FROM TB_CAMINHOES WHERE CAM_ID = LAST_INSERT_ID()");
+        
+        foreach ($response as $r) {
+            // $this->connection->query("INSERT INTO TB_MOT_CAM (MOC_CAM_ID, MOC_FUN_ID) VALUES ($r[CAM_ID], $request->driver)");
+            foreach ($request->zones as $zona) {
+                $this->connection->query("INSERT INTO TB_ZONAS_CAM (ZOC_CAM_ID, ZOC_ZON_ID) VALUES ($r[CAM_ID], $zona)");
+            }
+            foreach ($request->workers as $worker) {
+                $this->connection->query("INSERT INTO TB_CAM_FUNC (CAF_CAM_ID, CAF_FUN_ID) VALUES ($r[CAM_ID], $worker)");
+            }
+        }
+
+        return Redirect::to("trucks");
     }
 
     /**
