@@ -135,6 +135,7 @@ class ZoneController extends Controller
      */
     public function destroy($id)
     {
+        $this->connection->query("DELETE FROM TB_ZONAS_CAM WHERE ZOC_ZON_ID = $id");
         $this->connection->query("DELETE FROM TB_ZONAS WHERE ZON_ID = $id");
         return Redirect::to("zones");
     }
