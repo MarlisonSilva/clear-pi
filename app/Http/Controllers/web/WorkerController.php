@@ -10,7 +10,7 @@ class WorkerController extends Controller
 {
 
     function __construct(){
-        include(app_path()."/includes/php/DBConfig.php");
+        include(app_path('includes'.DIRECTORY_SEPARATOR.'php'.DIRECTORY_SEPARATOR.'DBconfig.php'));
         $this->connection = $connection;
     }
 
