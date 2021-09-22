@@ -18,15 +18,21 @@
                     <img id="run" src="{{ asset('assets/images/play-fill.svg') }}" alt="Iniciar"> 
                     <span id="text-run"> Iniciar coleta agora</span>   
                 </a> 
-                <div class="gap-1 d-flex justify-content-center mt-1 w-100">    
+                <div class="gap-1 d-flex justify-content-center mt-1 w-100">   
                     <select class="btn btn-primary w-50" name="trucks" id="trucks">
-                        <option value="0">Caminhão 0</option>
-                        <option value="1">Caminhão 1</option>
-                    </select>  
+                    @if (mysqli_fetch_row($caminhoes))
+                        @foreach ($caminhoes as $caminhao)
+                            <option value="{{$caminhao["CAM_ID"]}}">{{$caminhao["CAM_NOME"]}}</option>
+                        @endforeach
+                    @endif
+                    </select>
                     <select class="btn btn-primary w-50" name="zones" id="zones">
-                        <option value="0">Zona 0</option>
-                        <option value="1">Zona 1</option>
-                    </select>    
+                    @if (mysqli_fetch_row($zonas))
+                        @foreach ($zonas as $zona)
+                            <option value="{{$zona["ZON_ID"]}}">{{$zona["ZON_NOME"]}}</option>
+                        @endforeach
+                    @endif
+                    </select>
                 </div>
             </div>
             

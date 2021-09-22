@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RunningController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\web\TruckController;
 use App\Http\Controllers\web\WorkerController;
@@ -61,3 +62,4 @@ Route::get('/theme/{rota?}', function ($rota = null) {
 Route::get('/running', function() {
     return view('running/startRunning');
 });
+Route::resource('/running', RunningController::class);

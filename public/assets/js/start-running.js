@@ -5,19 +5,18 @@ let min = "00";
 let sec = "00";
 let stopwatching = false;
 
+let images = ["assets/images/play-fill.svg", "assets/images/pause-fill.svg"];
+let texts = ["Iniciar coleta agora", "Finalizar coleta"];
+
 function run(){
-    console.log('funciona');
+    stopwatching = !stopwatching;
+
     let img = document.getElementById('run');
 
-    if(img.getAttribute('src') == "assets/images/pause-fill.svg"){
-        img.setAttribute('src', 'assets/images/play-fill.svg');
-        document.getElementById('text-run').innerHTML =  "Iniciar coleta agora";
-        stopwatching = false;
-        stopStopwatch();
-    }else{
-        img.setAttribute('src', 'assets/images/pause-fill.svg');
-        document.getElementById('text-run').innerHTML =  "Parar contador";
-        stopwatching = true;
+    img.setAttribute('src', images[+stopwatching]);
+    document.getElementById('text-run').innerText = texts[+stopwatching];
+    
+    if(stopwatching){
         startStopwatch();
     }
 }
