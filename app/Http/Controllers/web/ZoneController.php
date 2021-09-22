@@ -123,7 +123,8 @@ class ZoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->connection->query("UPDATE TB_ZONAS SET ZON_NOME = '$request->nome', ZON_HRFUNCIONAMENTO = '$request->horario', ZON_DIASFUNCIONAMENTO = '$this->fazerDiasFunc($request)' WHERE ZON_ID = $id");
+        $diasFuncionamento = $this->fazerDiasFunc($request);
+        $this->connection->query("UPDATE TB_ZONAS SET ZON_NOME = '$request->nome', ZON_HRFUNCIONAMENTO = '$request->horario', ZON_DIASFUNCIONAMENTO = '$diasFuncionamento' WHERE ZON_ID = $id");
         return Redirect::to("zones");
     }
     
