@@ -90,7 +90,7 @@ class ZoneController extends Controller
      */
     public function edit($id)
     {
-        $response = $this->connection->query("SELECT ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM tb_zonas WHERE ZON_ID = $id");
+        $response = $this->connection->query("SELECT ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM tb_zonas WHERE ZON_ID = '$id'");
         
         foreach ($response as $data) {
             $dias = explode(", ", $data["ZON_DIASFUNCIONAMENTO"]);
