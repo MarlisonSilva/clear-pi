@@ -21,7 +21,6 @@
                     <input type="checkbox" class="btn-check w-25" name="domingo" id="domingo" autocomplete="off">
                     <label class="btn btn-outline-dark w-25" for="domingo" id="dia-checkbox">Domingo</label>
                 
-                
                     <input type="checkbox" class="btn-check w-25" name="segunda" id="segunda" autocomplete="off">
                     <label class="btn btn-outline-dark w-25" for="segunda" id="dia-checkbox">Segunda</label>
                 

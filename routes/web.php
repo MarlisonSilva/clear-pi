@@ -43,22 +43,12 @@ Route::get('/template', function () {
 });
 
 Route::resource('/trucks', TruckController::class);
-// Route::resource('/trucksTemp', TruckTempController::class);
 
-Route::get('/worker', function() {
-    return view('workers/worker');
-});
 
 Route::resource('/workers', WorkerController::class);
-Route::resource('/workersTemp', WorkerTempController::class);
-
-
-Route::get('/zone', function() {
-    return view('zones/zone');
-});
 
 Route::resource('/zones', ZoneController::class);
-Route::resource('/zonesTemp', ZoneTempController::class);
+
 
 Route::get('/running', function() {
     return view('running/startRunning');

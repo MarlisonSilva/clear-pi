@@ -39,7 +39,7 @@ class ZoneController extends Controller
     public function index()
     {
         $response = $this->connection->query("SELECT ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM TB_ZONAS");
-        return view('zones/indexZoneB', ["data" => $response]);
+        return view('zones/indexZone', ["data" => $response]);
     }
     
     /**
@@ -49,7 +49,7 @@ class ZoneController extends Controller
      */
     public function create()
     {
-        return view('zones/createZoneB', ["dias" => $this->diasSemana]);
+        return view('zones/createZone', ["dias" => $this->diasSemana]);
     }
     
     /**
@@ -106,7 +106,7 @@ class ZoneController extends Controller
         }
 
         return view(
-            'zones/editZoneB',
+            'zones/editZone',
             [
                 "data" => $response,
                 "diasSelec" => $diasSelec,

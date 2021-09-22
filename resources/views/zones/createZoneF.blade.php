@@ -1,6 +1,6 @@
 @extends('layout.clean-template')
 @section('content')
-    <form action="{{ route('zonesTemp.store') }}" method="POST">
+    <form action="{{ route('zones.store') }}" method="POST">
         @csrf
         <div class="form-group my-3">
             <label for="nome">Nome</label>
@@ -15,6 +15,7 @@
         <div class="form-group my-3">
             
             <label>Dias de funcionamento</label>
+            
             <div class="row my-2" id="tabela-dias">   
                 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                     <input type="checkbox" class="btn-check w-25" name="domingo" id="domingo" autocomplete="off">
