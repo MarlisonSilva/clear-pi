@@ -15,10 +15,10 @@
             <label for="cargaH">Carga horária</label>
             <input type="number" name="cargaH" class="form-control" id="cargaH" placeholder="CH do funcionário">
         </div>
+        
         <div class="form-group my-3">
             <label for="telefone">Telefone</label>
             <input type="text" name="telefone" class="form-control" id="telefone" placeholder="Nº de telefone do funcionário">
-            
         </div>
         
         <div class="form-group mt-4">

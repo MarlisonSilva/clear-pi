@@ -15,13 +15,13 @@
     
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered align-middle"  style="max-width: 98%">
+            <table class="table table-bordered align-middle">
                 <thead>
                     <tr>
                         <th scope="col" class="col-2">Nome</th>
                         <th scope="col" class="col-2">Zona(s)</th>
                         <th scope="col" class="col-2">Motorista</th>
-                        <th scope="col" class="col-4">Funcionarios</th>
+                        <th scope="col" class="col-4">Funcionários</th>
                         <th scope="col" class="col-1 text-center"  colspan="2">Ação</th>
                     </tr>
                 </thead>

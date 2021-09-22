@@ -24,7 +24,7 @@ class WorkerController extends Controller
         $response = $this->connection->query("SELECT * FROM TB_FUNCIONARIOS");
         $response2 = $this->connection->query("SELECT * FROM TB_TEL_FUNCIONARIOS");
 
-        return view('workers/indexWorkerB', ["funcionarios" => $response, "telefones" => $response2]);
+        return view('workers/indexWorker', ["funcionarios" => $response, "telefones" => $response2]);
     }
 
     /**
@@ -34,7 +34,7 @@ class WorkerController extends Controller
      */
     public function create()
     {
-        return view('workers/createWorkerB');
+        return view('workers/createWorker');
     }
 
     /**
@@ -75,7 +75,7 @@ class WorkerController extends Controller
     {
         $response = $this->connection->query("SELECT * FROM TB_FUNCIONARIOS WHERE FUN_ID = $id");
         $response2 = $this->connection->query("SELECT TEF_TELEFONE FROM TB_TEL_FUNCIONARIOS WHERE TEF_FUN_ID = $id");
-        return view('workers/editWorkerB', ["data" => $response, "telefone" => $response2]);
+        return view('workers/editWorker', ["data" => $response, "telefone" => $response2]);
     }
 
     /**
