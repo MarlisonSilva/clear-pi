@@ -38,6 +38,12 @@ class ZoneController extends Controller
      */
     public function index()
     {
+
+        session_start();
+        if(!isset($_SESSION['usr'])){
+            return Redirect::to("login");
+        }
+
         $response = $this->connection->query("SELECT ZON_ID, ZON_NOME, ZON_HRFUNCIONAMENTO, ZON_DIASFUNCIONAMENTO FROM TB_ZONAS");
         return view('zones/indexZone', ["data" => $response]);
     }

@@ -1,6 +1,5 @@
 <?php
-$rota = Route::currentRouteName();
-    session_start();   
+    $rota = Route::currentRouteName();
 
     if(!isset($_SESSION['theme'])){        
         $_SESSION['theme'] = "light";

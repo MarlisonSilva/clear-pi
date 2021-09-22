@@ -5,7 +5,6 @@ namespace App\Http\Controllers\web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use League\CommonMark\Extension\CommonMark\Node\Block\ListItem;
 
 class TruckController extends Controller
 {
@@ -40,6 +39,11 @@ class TruckController extends Controller
      */
     public function index()
     {
+        session_start();
+        if(!isset($_SESSION['usr'])){
+            return Redirect::to("login");
+        }
+
         $response = $this->connection->query("SELECT CAM_ID, CAM_NOME FROM TB_CAMINHOES");
 
         return view(

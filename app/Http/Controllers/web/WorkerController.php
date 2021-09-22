@@ -21,6 +21,12 @@ class WorkerController extends Controller
      */
     public function index()
     {
+
+        session_start();
+        if(!isset($_SESSION['usr'])){
+            return Redirect::to("login");
+        }
+
         $response = $this->connection->query("SELECT * FROM TB_FUNCIONARIOS");
         $response2 = $this->connection->query("SELECT * FROM TB_TEL_FUNCIONARIOS");
 

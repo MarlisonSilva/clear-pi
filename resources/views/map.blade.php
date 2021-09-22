@@ -1,12 +1,10 @@
 <?php
-$rota = Route::currentRouteName();
+	$rota = Route::currentRouteName();
     session_start();   
 
     if(!isset($_SESSION['theme'])){        
         $_SESSION['theme'] = "light";
     }
-    
-    
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -58,9 +56,15 @@ $rota = Route::currentRouteName();
 					<li class="navigation-item active">
 						<a href="{{ route('theme', ['rota' => $rota]) }}">Mode</a>
 					</li>
-					<li class="navigation-item login">
-						<a href="{{ url('/login') }}">Logar</a>
-					</li>
+					@if (!isset($_SESSION["usr"]))
+						<li class="navigation-item login">
+							<a href="{{ url('/login') }}">Logar</a>
+						</li>
+					@else
+						<li class="navigation-item login">
+							<a href="{{ url('/template') }}">Gerência</a>
+						</li>
+					@endif
 				</ul>	
 			</div>
 			<div class="navigation-toggle" onclick="navigationToggle()">

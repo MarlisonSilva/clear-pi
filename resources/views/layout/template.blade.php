@@ -1,9 +1,11 @@
 <?php
     $rota = Route::currentRouteName();
-    session_start();   
-
-    if(!isset($_SESSION['theme'])){        
-        $_SESSION['theme'] = "light";
+    try {
+        session_start();
+    } catch (\Throwable $th) {}
+    if(!isset($_SESSION["usr"])){
+        header("Location: " . URL::to('/'));
+        exit();
     }
     
 ?>
@@ -35,34 +37,34 @@
             <hr>
             <ul class="list-unstyled components">
                 <li>
-                    <a href="{{ url('/') }}">
-                        <i id="icon1" class="bi bi-house-fill"></i><span> Página Principal</span>
+                    <a href="{{url('/')}}">
+                        <i id="icon1" class="bi bi-house-fill"></i><span>Página Principal</span>
                     </a>
                 </li>
                 <li @if ($rota==='zones.index') class="active" @endif>
-                    <a href="{{ route('zones.index') }}">
-                        <i id="icon2" class="bi bi-globe"></i><span> Zonas</span>
+                    <a href="{{route('zones.index')}}">
+                        <i id="icon2" class="bi bi-globe"></i><span>Zonas</span>
                     </a>
                 </li>
                 <li @if ($rota==='trucks.index') class="active" @endif>
-                    <a href="{{ route('trucks.index') }}">
-                        <i id="icon3" class="bi bi-truck"></i><span> Caminhões</span>
+                    <a href="{{route('trucks.index')}}">
+                        <i id="icon3" class="bi bi-truck"></i><span>Caminhões</span>
                     </a>
                 </li>
                 <li @if ($rota==='workers.index') class="active" @endif>
-                    <a href="{{ route('workers.index') }}">
-                        <i id="icon4" class="bi bi-people-fill"></i><span> Funcionários</span>
+                    <a href="{{route('workers.index')}}">
+                        <i id="icon4" class="bi bi-people-fill"></i><span>Funcionários</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('theme', ['rota' => $rota]) }}" >
+                    <a href="{{route('theme', ['rota' => $rota]) }}" >
                         {{-- onclick="toggleMode();" --}}
-                        <i id="icon5" class="bi bi-moon-stars-fill"></i><span> Mudar Tema</span>
+                        <i id="icon5" class="bi bi-moon-stars-fill"></i><span>Mudar Tema</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/running') }}">
-                        <i id="icon6" class="i bi-stopwatch-fill"></i><span> Começar coleta</span>
+                    <a href="{{url('/running')}}">
+                        <i id="icon6" class="i bi-stopwatch-fill"></i><span>Começar coleta</span>
                     </a>
                 </li>
                 <hr>
@@ -82,7 +84,7 @@
                           <img src="https://clipground.com/images/user-icon-png-free-2.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Sair</a></li>
+                          <li><a class="dropdown-item" href="{{route('login.show', 0)}}">Sair</a></li>
                         </ul>
                     </div>
                 </div>
