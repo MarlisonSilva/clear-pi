@@ -43,7 +43,7 @@ class TruckController extends Controller
         $response = $this->connection->query("SELECT CAM_ID, CAM_NOME FROM TB_CAMINHOES");
 
         return view(
-            'trucks/indexTruckB',
+            'trucks/indexTruck',
             [
                 "data" => $response,
                 "zonas" => $this->getList($response, ["ZOC_ZON", "ZON"], ["TB_ZONAS_CAM", "TB_ZONAS"], ["ZOC_CAM_ID", "ZON_ID"], ["CAM_ID", "ZOC_ZON_ID"]),
@@ -61,7 +61,7 @@ class TruckController extends Controller
         $response = $this->connection->query("SELECT ZON_ID, ZON_NOME FROM TB_ZONAS");
         $response2 = $this->connection->query("SELECT FUN_ID, FUN_NOME FROM TB_FUNCIONARIOS");
         return view(
-            'trucks/createTruckB',
+            'trucks/createTruck',
             [
                 "zonas" => $response,
                 "funcionarios" => $response2
@@ -115,7 +115,7 @@ class TruckController extends Controller
         $response2 = $this->connection->query("SELECT ZON_ID, ZON_NOME FROM TB_ZONAS");
         $response3 = $this->connection->query("SELECT FUN_ID, FUN_NOME FROM TB_FUNCIONARIOS");
         return view(
-            'trucks/editTruckB',
+            'trucks/editTruck',
             [
                 "camData" => $response,
                 "zonas" => $response2,

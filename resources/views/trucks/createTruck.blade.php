@@ -38,7 +38,7 @@
                 @endforeach
             </select>
         </div>
-        
+
         <div class="form-group mt-4">
             <button type="submit" class="btn btn-primary px-5"><i class="ti ti-truck"></i>Criar</button>
         </div>
@@ -46,6 +46,7 @@
         <div class="form-group mt-2 mb-5">
             <a class="btn btn-outline-danger px-5" href="javascript:history.back()"><i class="icon-trash"></i> Cancelar</a>
         </div>
+
     </form>
 @endsection
 @section('scripts')

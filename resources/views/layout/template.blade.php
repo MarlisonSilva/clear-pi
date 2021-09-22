@@ -31,17 +31,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/zone') }}">
+                    <a href="{{ route('zones.index') }}">
                         <i id="icon2" class="bi bi-globe"></i><span> Zonas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/truck') }}">
+                    <a href="{{ route('trucks.index') }}">
                         <i id="icon3" class="bi bi-truck"></i><span> Caminhões</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/worker') }}">
+                    <a href="{{ route('workers.index') }}">
                         <i id="icon4" class="bi bi-people-fill"></i><span> Funcionários</span>
                     </a>
                 </li>

@@ -42,12 +42,8 @@ Route::get('/template', function () {
     return view('layout/template');
 });
 
-Route::get('/truck', function() {
-    return view('trucks/truck');
-});
-
 Route::resource('/trucks', TruckController::class);
-Route::resource('/trucksTemp', TruckTempController::class);
+// Route::resource('/trucksTemp', TruckTempController::class);
 
 Route::get('/worker', function() {
     return view('workers/worker');
