@@ -4,22 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\web\TruckController;
 use App\Http\Controllers\web\WorkerController;
 use App\Http\Controllers\web\ZoneController;
-// Temporários
-use App\Http\Controllers\temporary\TruckTempController;
-use App\Http\Controllers\temporary\WorkerTempController;
-use App\Http\Controllers\temporary\ZoneTempController;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 // Login e Register
 
@@ -36,11 +22,12 @@ Route::get('/register', function () {
 
 Route::get('/', function () {
     return view('map');
-});
+})->name('map');
 
 Route::get('/template', function () {
     return view('layout/template');
-});
+})->name('template');
+
 
 Route::resource('/trucks', TruckController::class);
 
@@ -48,6 +35,27 @@ Route::resource('/trucks', TruckController::class);
 Route::resource('/workers', WorkerController::class);
 
 Route::resource('/zones', ZoneController::class);
+
+
+
+
+
+//  ----- TEMA -----
+
+Route::get('/theme/{rota?}', function ($rota = null) {
+    session_start();
+    
+    if($_SESSION['theme'] == "light"){
+        $_SESSION['theme'] = "dark";
+    }else{
+        $_SESSION['theme'] = "light";
+    }
+
+    echo $_SESSION['theme'];
+
+    return redirect()->route($rota);
+
+})->name('theme');
 
 
 Route::get('/running', function() {

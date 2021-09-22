@@ -1,3 +1,13 @@
+<?php
+$rota = Route::currentRouteName();
+    session_start();   
+
+    if(!isset($_SESSION['theme'])){        
+        $_SESSION['theme'] = "light";
+    }
+    
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,7 +27,7 @@
 
     @yield('styles')
 </head>
-<body>
+<body  @if ($_SESSION["theme"] == "dark") class="dark-mode" @else class="" @endif>
     <div class="container-fluid">
         <div class="container-sm container-form d-flex flex-column">
             <div class="container-logo d-flex justify-content-center py-3">

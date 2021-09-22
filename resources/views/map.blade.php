@@ -1,3 +1,13 @@
+<?php
+$rota = Route::currentRouteName();
+    session_start();   
+
+    if(!isset($_SESSION['theme'])){        
+        $_SESSION['theme'] = "light";
+    }
+    
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,7 +24,7 @@
     
     <title>Mapa</title>
 </head>
-<body>
+<body  @if ($_SESSION["theme"] == "dark") class="dark-mode" @else class="" @endif>
 	<div class="content">
 
 		<nav class="navigation-bar">
@@ -46,7 +56,7 @@
 						</a>
 					</li>
 					<li class="navigation-item active">
-						<a href="#" onclick="toggleMode();">Mode</a>
+						<a href="{{ route('theme', ['rota' => $rota]) }}">Mode</a>
 					</li>
 					<li class="navigation-item login">
 						<a href="{{ url('/login') }}">Logar</a>

@@ -1,5 +1,11 @@
 <?php
-$rota = Route::currentRouteName();
+    $rota = Route::currentRouteName();
+    session_start();   
+
+    if(!isset($_SESSION['theme'])){        
+        $_SESSION['theme'] = "light";
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,7 +23,7 @@ $rota = Route::currentRouteName();
     <link rel="stylesheet" href="{{ asset('assets/css/homepage.css') }}">
    
 </head>
-<body>
+<body @if ($_SESSION["theme"] == "dark") class="dark-mode" @else class="" @endif>
     {{-- Main --}}
     <div class="wrapper">
 
@@ -49,7 +55,8 @@ $rota = Route::currentRouteName();
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="toggleMode();">
+                    <a href="{{ route('theme', ['rota' => $rota]) }}" >
+                        {{-- onclick="toggleMode();" --}}
                         <i id="icon5" class="bi bi-moon-stars-fill"></i><span> Mudar Tema</span>
                     </a>
                 </li>
