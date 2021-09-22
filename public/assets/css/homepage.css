@@ -80,17 +80,18 @@ h2 {
 }
 
 
+
 @media  screen and (max-width: 780px) {
     span.criar{
         display: none;
     }
 }
+
 /* Light Mode */
 
 #content {
     background-color: lightgray;
 
-    
 }
 
 #sidebar {
@@ -102,6 +103,11 @@ h2 {
     background: #f0d278;
     
 }
+
+.components li.active{
+    background-color: #e7c869;
+}
+
 #header {
     background-color: #e7c869;
 
@@ -129,6 +135,11 @@ td {
 
 .dark-mode #sidebar ul li a:hover {
     background: #416e99;
+}
+
+.dark-mode .components li.active{
+    background: #416e99;
+    
 }
 
 .dark-mode #header {

@@ -1,3 +1,6 @@
+<?php
+$rota = Route::currentRouteName();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -30,17 +33,17 @@
                         <i id="icon1" class="bi bi-house-fill"></i><span> Página Principal</span>
                     </a>
                 </li>
-                <li>
+                <li @if ($rota==='zones.index') class="active" @endif>
                     <a href="{{ route('zones.index') }}">
                         <i id="icon2" class="bi bi-globe"></i><span> Zonas</span>
                     </a>
                 </li>
-                <li>
+                <li @if ($rota==='trucks.index') class="active" @endif>
                     <a href="{{ route('trucks.index') }}">
                         <i id="icon3" class="bi bi-truck"></i><span> Caminhões</span>
                     </a>
                 </li>
-                <li>
+                <li @if ($rota==='workers.index') class="active" @endif>
                     <a href="{{ route('workers.index') }}">
                         <i id="icon4" class="bi bi-people-fill"></i><span> Funcionários</span>
                     </a>
