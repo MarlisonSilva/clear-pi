@@ -16,7 +16,7 @@ class ZoneController extends Controller
     }
 
     private function fazerDiasFunc(Request $request){
-        $dias = [$request->segunda, $request->terca, $request->quarta, $request->quinta, $request->sexta, $request->sábado, $request->domingo];
+        $dias = [$request->segunda, $request->terça, $request->quarta, $request->quinta, $request->sexta, $request->sábado, $request->domingo];
 
         $diasFuncionamento = "";
         for ($c=0; $c < count($dias); $c++) { 
