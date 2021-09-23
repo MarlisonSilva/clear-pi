@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\RunningController;
+use App\Http\Controllers\web\RunningController;
 use App\Http\Controllers\web\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\web\TruckController;
 use App\Http\Controllers\web\WorkerController;
 use App\Http\Controllers\web\ZoneController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 // Login e Register
 
