@@ -32,25 +32,25 @@
 					<li class="navigation-item">
 						<a href="#">
 							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-							<span>Caminhão X</span>
+							<span id="caminhaoX" onclick="center(this)">Caminhão X</span>
 						</a>
 					</li>
 					<li class="navigation-item">
 						<a href="#">
 							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-							<span>Caminhão Y</span>
+							<span id="caminhaoY" onclick="center(this)">Caminhão Y</span>
 						</a>
 					</li>
 					<li class="navigation-item">
 						<a href="#">
 							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-							<span>Caminhão Z</span>
+							<span id="caminhaoZ" onclick="center(this)">Caminhão Z</span>
 						</a>
 					</li>
 					<li class="navigation-item">
 						<a href="#">
 							<img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-							<span>Caminhão W</span>
+							<span id="caminhaoW" onclick="center(this)">Caminhão W</span>
 						</a>
 					</li>
 					<li class="navigation-item active">
