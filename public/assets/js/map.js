@@ -85,7 +85,3 @@ for(var x = 0; x<popUps.length; x++){
             .addTo(map)
     ) 
 }
-
-for(var i = 0; i<=routes.length; i++) {
-    markers[0].setLngLat(routes[i][0])
-}
