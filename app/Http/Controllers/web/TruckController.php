@@ -46,12 +46,22 @@ class TruckController extends Controller
 
         $response = $this->connection->query("SELECT CAM_ID, CAM_NOME FROM TB_CAMINHOES");
 
+        $response2 = $this->connection->query("SELECT * FROM TB_MOT_CAM");
+
+        $motoristas = [];
+        foreach ($response2 as $r) {
+            array_push($motoristas, $r["MOC_FUN_ID"]);
+        }
+
         return view(
             'trucks/indexTruck',
             [
                 "data" => $response,
                 "zonas" => $this->getList($response, ["ZOC_ZON", "ZON"], ["TB_ZONAS_CAM", "TB_ZONAS"], ["ZOC_CAM_ID", "ZON_ID"], ["CAM_ID", "ZOC_ZON_ID"]),
-                "funcionarios" => $this->getList($response, ["CAF_FUN", "FUN"], ["TB_CAM_FUNC", "TB_FUNCIONARIOS"], ["CAF_CAM_ID", "FUN_ID"], ["CAM_ID", "CAF_FUN_ID"])
+                "funcionarios" => $this->getList($response, ["CAF_FUN", "FUN"], ["TB_CAM_FUNC", "TB_FUNCIONARIOS"], ["CAF_CAM_ID", "FUN_ID"], ["CAM_ID", "CAF_FUN_ID"]),
+                "motoristas" => $motoristas,
+                "funcs" => $this->connection->query("SELECT * FROM TB_FUNCIONARIOS"),
+                "motCam" => $this->connection->query("SELECT * FROM TB_MOT_CAM")
             ]);
     }
 
@@ -80,11 +90,11 @@ class TruckController extends Controller
      */
     public function store(Request $request)
     {
-        $this->connection->query("INSERT INTO TB_CAMINHOES (CAM_NOME, CAM_TEMPOATIVO, CAM_QUILOMETRAGEM, CAM_STATUS, CAM_POSICAO) VALUES ('$request->nome', 0, 0, 0, 0)");
+        $this->connection->query("INSERT INTO TB_CAMINHOES (CAM_NOME) VALUES ('$request->nome')");
         $response = $this->connection->query("SELECT CAM_ID FROM TB_CAMINHOES WHERE CAM_ID = LAST_INSERT_ID()");
         
         foreach ($response as $r) {
-            // $this->connection->query("INSERT INTO TB_MOT_CAM (MOC_CAM_ID, MOC_FUN_ID) VALUES ($r[CAM_ID], $request->driver)");
+            $this->connection->query("INSERT INTO TB_MOT_CAM (MOC_CAM_ID, MOC_FUN_ID) VALUES ($r[CAM_ID], $request->driver)");
             foreach ($request->zones as $zona) {
                 $this->connection->query("INSERT INTO TB_ZONAS_CAM (ZOC_CAM_ID, ZOC_ZON_ID) VALUES ($r[CAM_ID], $zona)");
             }
@@ -114,7 +124,8 @@ class TruckController extends Controller
                 "zonas" => $response2,
                 "funcionarios" => $response3,
                 "zonasCam" => $this->connection->query("SELECT ZOC_ZON_ID FROM TB_ZONAS_CAM WHERE ZOC_CAM_ID = $id"),
-                "funcionariosCam" => $this->connection->query("SELECT CAF_FUN_ID FROM TB_CAM_FUNC WHERE CAF_CAM_ID = $id")
+                "funcionariosCam" => $this->connection->query("SELECT CAF_FUN_ID FROM TB_CAM_FUNC WHERE CAF_CAM_ID = $id"),
+                "motoristaCam" => $this->connection->query("SELECT MOC_FUN_ID FROM TB_MOT_CAM WHERE MOC_CAM_ID = $id")
             ]);
     }
 
@@ -136,7 +147,12 @@ class TruckController extends Controller
         foreach ($request["workers"] as $worker) {
             $this->connection->query("INSERT INTO TB_CAM_FUNC (CAF_CAM_ID, CAF_FUN_ID) VALUES ($id, $worker)");
         }
-        // $this->connection->query("UPDATE TB_MOT_CAM SET MOC = '$request->driver' WHERE MOC_CAM_ID = $id");
+        
+        if(mysqli_fetch_array($this->connection->query("SELECT * FROM TB_MOT_CAM WHERE MOC_CAM_ID = $id")) != null){
+            $this->connection->query("UPDATE TB_MOT_CAM SET MOC_FUN_ID = '$request->driver' WHERE MOC_CAM_ID = $id");
+        }else{
+            $this->connection->query("INSERT INTO TB_MOT_CAM (MOC_CAM_ID, MOC_FUN_ID) VALUES ($id, $request->driver)");
+        }
         
         return Redirect::to("trucks");
     }

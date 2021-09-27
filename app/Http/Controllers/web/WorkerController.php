@@ -97,6 +97,7 @@ class WorkerController extends Controller
     {
         $this->connection->query("DELETE FROM TB_CAM_FUNC WHERE CAF_FUN_ID = $id");
         $this->connection->query("DELETE FROM TB_TEL_FUNCIONARIOS WHERE TEF_FUN_ID = $id");
+        $this->connection->query("DELETE FROM TB_MOT_CAM WHERE MOC_FUN_ID = $id");
         $this->connection->query("DELETE FROM TB_FUNCIONARIOS WHERE FUN_ID = $id");
         return Redirect::to("workers");
     }

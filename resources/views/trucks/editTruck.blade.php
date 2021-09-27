@@ -36,7 +36,16 @@
                 <label for="driver">Motorista</label>
                 <select class="selectpicker form-select form-control" name="driver" id="driver" data-live-search="true" title="Selecionar..." required>
                     @foreach ($funcionarios as $funcionario)
-                        <option value="{{$funcionario["FUN_ID"]}}">{{$funcionario["FUN_NOME"]}}</option>
+                        <?php
+                            $selected = false;
+                            foreach ($motoristaCam as $fc){
+                                if($fc["MOC_FUN_ID"] == $funcionario["FUN_ID"]){
+                                    $selected = true;
+                                    break;
+                                }
+                            } 
+                        ?>
+                        <option value="{{$funcionario["FUN_ID"]}}" @if ($selected) selected @endif>{{$funcionario["FUN_NOME"]}}</option>
                     @endforeach
                 </select>
             </div>
