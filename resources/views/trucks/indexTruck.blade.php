@@ -32,7 +32,24 @@
                             <tr>
                                 <td>{{$truck["CAM_NOME"]}}</td>
                                 <td>{{implode(" - ", $zonas[$c])}}</td>
-                                <td>MOTORISTA</td>
+                                <?php
+                                    $nomeMotorista = "";
+                                    foreach ($funcs as $f) {
+                                        foreach ($motoristas as $mot) {
+                                            if($f["FUN_ID"] == $mot){
+                                                foreach ($motCam as $mc) {
+                                                    if ($mc["MOC_CAM_ID"] == $truck["CAM_ID"] && $mc["MOC_FUN_ID"] == $f["FUN_ID"]) {
+                                                        $nomeMotorista = $f["FUN_NOME"];
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if($nomeMotorista != ""){
+                                            break;
+                                        }
+                                    }
+                                ?>
+                                <td>{{$nomeMotorista}}</td>
                                 <td>{{implode(" - ", $funcionarios[$c])}}</td>
                                 <td>
                                     <a href="{{ route('trucks.edit', $truck["CAM_ID"]) }}">Editar</a>
