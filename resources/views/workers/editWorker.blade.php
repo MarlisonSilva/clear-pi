@@ -8,24 +8,24 @@
             <div class="form-group">
                 <label for="nome my-3">Nome</label>
                 <input type="text" name="nome" class="form-control" id="nome" value="{{ $funcionario['FUN_NOME'] }}"
-                    placeholder="Nome do funcionário">
+                    placeholder="Nome do funcionário" required>
             </div>
             <div class="form-group my-3">
                 <label for="matricula">Matrícula</label>
                 <input type="number" name="matricula" class="form-control" id="matricula"
-                    value="{{ $funcionario['FUN_MATRICULA'] }}" placeholder="Prefeitura do funcionário">
+                    value="{{ $funcionario['FUN_MATRICULA'] }}" placeholder="Prefeitura do funcionário" required>
             </div>
             <div class="form-group my-3">
                 <label for="cargaH">Carga horária</label>
                 <input type="number" name="cargaH" class="form-control" id="cargaH" value="{{ $funcionario['FUN_CH'] }}"
-                    placeholder="CH do funcionário">
+                    placeholder="CH do funcionário" required>
             </div>
 
             <div class="form-group my-3">
                 <label for="telefone">Telefone</label>
                 @foreach ($telefone as $tf)
                     <input type="text" name="telefone" class="form-control" id="telefone"
-                        value="{{ $tf['TEF_TELEFONE'] }}" placeholder="Nº de telefone do funcionário">
+                        value="{{ $tf['TEF_TELEFONE'] }}" placeholder="Nº de telefone do funcionário" required>
                 @endforeach
             </div>
 

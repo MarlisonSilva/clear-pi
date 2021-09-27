@@ -20,7 +20,7 @@ class MapController extends Controller
      */
     public function index()
     {
-        $response = $this->connection->query("SELECT CAM_ID, CAM_NOME FROM TB_CAMINHOES WHERE CAM_RODANDO = true");
+        $response = $this->connection->query("SELECT CAM_ID, CAM_NOME FROM TB_CAMINHOES WHERE CAM_STATUS = true");
         return View("map", ["caminhoes" => $response]);
     }
 }

@@ -4,12 +4,12 @@
         @csrf
         <div class="form-group my-3">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome da zona">
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome da zona" required>
         </div>
 
         <div class="form-group my-3">
             <label for="horario">Horário de funcionamento</label>
-            <input type="text" class="form-control" name="horario" id="horario" placeholder="hh:mm - hh:mm">
+            <input type="text" class="form-control" name="horario" id="horario" placeholder="hh:mm - hh:mm" required>
         </div>
 
         <div class="form-group my-3">
@@ -28,11 +28,9 @@
                                         id="dia-checkbox">{{ $dias[$i] }}</label>
                                 <?php $i++; ?>
                             @endif
-
                         @endfor
                     </div>
                 </div>
-
             @endfor
         </div>
         <div class="form-group mt-4">

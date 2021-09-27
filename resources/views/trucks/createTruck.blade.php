@@ -9,12 +9,12 @@
         @csrf
         <div class="form-group my-3">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nomeie o caminhão">
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nomeie o caminhão" required>
         </div>
         
         <div class="form-group my-3">
             <label for="zones[]">Zona(s)</label>
-            <select class="selectpicker form-select form-control" id="zones[]" name="zones[]" data-live-search="true" title="Selecionar..." multiple>
+            <select class="selectpicker form-select form-control" id="zones[]" name="zones[]" data-live-search="true" title="Selecionar..." multiple required>
                 @foreach ($zonas as $zona)
                     <option value="{{$zona["ZON_ID"]}}">{{$zona["ZON_NOME"]}}</option>
                 @endforeach
@@ -23,7 +23,7 @@
 
         <div class="form-group my-3">
             <label for="driver">Motorista</label>
-            <select class="selectpicker form-select form-control" name="driver" id="driver" data-live-search="true" title="Selecionar...">
+            <select class="selectpicker form-select form-control" name="driver" id="driver" data-live-search="true" title="Selecionar..." required>
                 @foreach ($funcionarios as $funcionario)
                     <option value="{{$funcionario["FUN_ID"]}}">{{$funcionario["FUN_NOME"]}}</option>
                 @endforeach
@@ -32,7 +32,7 @@
 
         <div class="form-group my-3">
             <label for="workers[]">Funcionários</label>
-            <select class="selectpicker form-select form-control" name="workers[]" id="workers[]" data-live-search="true" title="Selecionar..." multiple>
+            <select class="selectpicker form-select form-control" name="workers[]" id="workers[]" data-live-search="true" title="Selecionar..." multiple required>
                 @foreach ($funcionarios as $funcionario)
                     <option value="{{$funcionario["FUN_ID"]}}">{{$funcionario["FUN_NOME"]}}</option>
                 @endforeach

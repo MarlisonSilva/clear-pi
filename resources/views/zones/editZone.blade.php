@@ -7,12 +7,12 @@
 
             <div class="form-group my-3">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome da zona" value={{ $item['ZON_NOME'] }}>
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome da zona" value="{{ $item['ZON_NOME'] }}" required>
             </div>
     
             <div class="form-group my-3">
                 <label for="horario">Horário de funcionamento</label>
-                <input type="text" class="form-control" name="horario" id="horario" placeholder="hh:mm - hh:mm" value={{ $item['ZON_HRFUNCIONAMENTO'] }}>
+                <input type="text" class="form-control" name="horario" id="horario" placeholder="hh:mm - hh:mm" value="{{ $item['ZON_HRFUNCIONAMENTO'] }}" required>
             </div>
 
             <div class="form-group my-3">
@@ -25,9 +25,9 @@
                         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                             @for ($k = 0; $k < 3; $k++)
                                 @if ($i < count($dias))
-                                    <input type="checkbox" class="btn-check" name={{ strtolower($dias[$i]) }}
-                                        id={{ strtolower($dias[$i]) }} @if ($diasSelec[$i]) checked @endif />
-                                    <label class="btn btn-outline-dark w-25" for={{ strtolower($dias[$i]) }}
+                                    <input type="checkbox" class="btn-check" name="{{ strtolower($dias[$i]) }}"
+                                        id="{{ strtolower($dias[$i]) }}" @if ($diasSelec[$i]) checked @endif />
+                                    <label class="btn btn-outline-dark w-25" for="{{ strtolower($dias[$i]) }}"
                                         id="dia-checkbox">{{ $dias[$i] }}</label>
                                     <?php $i++; ?>
                                 @endif
