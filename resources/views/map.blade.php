@@ -33,12 +33,10 @@
                         <li class="navigation-item">
                             <a href="#">
                                 <img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-                                <span id="{{$caminhao["CAM_ID"]}}" onclick="center(this)">{{$caminhao["CAM_NOME"]}}</span>
+                                <span onclick="center(this)">{{$caminhao["CAM_NOME"]}}</span>
                             </a>
                         </li>
                     @endforeach
-                    
-
 
                     <li class="navigation-item active">
                         <a href="{{ route('theme', ['rota' => $rota]) }}">Mode</a>

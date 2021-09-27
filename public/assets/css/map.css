@@ -251,3 +251,13 @@ body a{
 .dark-mode .navigation-item.login a:hover{
     color: #213242;
 }
+
+.marker {
+    display: block;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    background-repeat: no-repeat;
+    
+}
