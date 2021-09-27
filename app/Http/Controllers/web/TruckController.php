@@ -167,6 +167,7 @@ class TruckController extends Controller
     {
         $this->connection->query("DELETE FROM TB_ZONAS_CAM WHERE ZOC_CAM_ID = $id");
         $this->connection->query("DELETE FROM TB_CAM_FUNC WHERE CAF_CAM_ID = $id");
+        $this->connection->query("DELETE FROM TB_MOT_CAM WHERE MOC_CAM_ID = $id");
         $this->connection->query("DELETE FROM TB_CAMINHOES WHERE CAM_ID = $id");
         return Redirect::to("trucks");
     }
