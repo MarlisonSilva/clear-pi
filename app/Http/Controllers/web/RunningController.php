@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class RunningController extends Controller
 {
@@ -18,6 +19,12 @@ class RunningController extends Controller
      */
     public function index()
     {
+
+        session_start();
+        if(!isset($_SESSION['usr'])){
+            return Redirect::to("login");
+        }
+
         $response = $this->connection->query("SELECT ZON_ID, ZON_NOME FROM TB_ZONAS");
         $response2 = $this->connection->query("SELECT CAM_ID, CAM_NOME FROM TB_CAMINHOES");
         return view(
