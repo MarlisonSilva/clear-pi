@@ -41,8 +41,8 @@ class LoginController extends Controller
 
         $error = true;
 
-        $response = $this->connection->query("SELECT * FROM TB_ADMINISTRADORES WHERE ADM_NOME = '$request->usuario' and ADM_SENHA = '$request->senha'");
-        if(mysqli_fetch_array($response) != null){
+        $response = $this->connection->query("SELECT * FROM TB_ADMINISTRADORES WHERE ADM_EMAIL = '$request->usuario' and ADM_SENHA = '$request->senha'");
+        if($response->fetch_row() != null){
             foreach ($response as $r) {
                 $_SESSION['usr'] = $r['ADM_ID'];
                 $error = false;
