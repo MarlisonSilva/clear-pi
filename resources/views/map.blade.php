@@ -49,7 +49,7 @@
                         </li>
                     @else
                         <li class="navigation-item login">
-                            <a href="{{ url('/template') }}">GerÃªncia</a>
+                            <a href="{{ url('/template') }}">Gerência</a>
                         </li>
                     @endif
                 </ul>    

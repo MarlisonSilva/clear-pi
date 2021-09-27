@@ -47,7 +47,7 @@ class LoginController extends Controller
             return Redirect::to("template");
         }
 
-        return view('authentication/login', ["error" => $error]);
+        return view('authentication/login', ["error" => $error, "email" => $request->usuario]);
     }
 
     /**

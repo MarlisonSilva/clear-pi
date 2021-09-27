@@ -10,11 +10,11 @@
             <form class="form-horizontal col-12 mt-3" method="POST" action="{{route('login.store')}}">
                 @csrf
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="usuario">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="usuario" @if($error) value="{{$email}}" @endif required>
                     <label for="floatingInput">Endereço Email</label>
                   </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="senha">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="senha" required>
                     <label for="floatingPassword">Senha</label>
                 </div>
                 
