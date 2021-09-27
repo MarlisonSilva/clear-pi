@@ -28,15 +28,36 @@
         <nav class="navigation-bar">
             <div class="navigation">
                 <h1 class="navigation-title">C.L.E.A.R</h1>
+                
                 <ul class="navigation-content">
-                    @foreach ($caminhoes as $caminhao)
                         <li class="navigation-item">
                             <a href="#">
                                 <img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
-                                <span onclick="center(this)">{{$caminhao["CAM_NOME"]}}</span>
+                                <span id="caminhaoX" onclick="center(this)">Caminhão X</span>
                             </a>
                         </li>
-                    @endforeach
+
+                         <li class="navigation-item">
+                            <a href="#">
+                                <img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
+                                <span id="caminhaoY" onclick="center(this)">Caminhão Y</span>
+                            </a>
+                        </li>
+
+                         <li class="navigation-item">
+                            <a href="#">
+                                <img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
+                                <span id="caminhaoZ" onclick="center(this)">Caminhão Z</span>
+                            </a>
+                        </li>
+                        
+                         <li class="navigation-item">
+                            <a href="#">
+                                <img class="icon" src="{{ asset('assets/images/favicon.ico') }}" alt="icon" />
+                                <span id="caminhaoW" onclick="center(this)">Caminhão W</span>
+                            </a>
+                        </li>
+
 
                     <li class="navigation-item active">
                         <a href="{{ route('theme', ['rota' => $rota]) }}">Mode</a>
