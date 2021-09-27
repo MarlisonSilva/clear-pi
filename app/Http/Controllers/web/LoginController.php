@@ -5,6 +5,7 @@ namespace App\Http\Controllers\web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use mysqli;
 
 class LoginController extends Controller
 {
@@ -41,10 +42,12 @@ class LoginController extends Controller
         $error = true;
 
         $response = $this->connection->query("SELECT * FROM TB_ADMINISTRADORES WHERE ADM_NOME = '$request->usuario' and ADM_SENHA = '$request->senha'");
-        foreach ($response as $r) {
-            $_SESSION['usr'] = $r['ADM_ID'];
-            $error = false;
-            return Redirect::to("template");
+        if(mysqli_fetch_array($response) != null){
+            foreach ($response as $r) {
+                $_SESSION['usr'] = $r['ADM_ID'];
+                $error = false;
+                return Redirect::to("template");
+            }
         }
 
         return view('authentication/login', ["error" => $error, "email" => $request->usuario]);
