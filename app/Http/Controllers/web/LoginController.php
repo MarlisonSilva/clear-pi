@@ -40,8 +40,8 @@ class LoginController extends Controller
         session_start();
 
         $error = true;
-
-        $response = $this->connection->query("SELECT * FROM TB_ADMINISTRADORES WHERE ADM_EMAIL = '$request->usuario' and ADM_SENHA = '$request->senha'");
+        $senha = hash("sha512", $request->senha);
+        $response = $this->connection->query("SELECT * FROM TB_ADMINISTRADORES WHERE ADM_EMAIL = '$request->usuario' and ADM_SENHA = '$senha'");
         if($response->fetch_row() != null){
             foreach ($response as $r) {
                 $_SESSION['usr'] = $r['ADM_ID'];
